@@ -16,7 +16,7 @@ var being_knocked_back = false
 var knockback_direction = 0
 const SPEED = 350.0
 const JUMP_VELOCITY = -490.0
-@export var max_health: int
+var max_health: int
 var health: int
 var is_attacking = false
 @export var normal_knockback: float = 150.0
@@ -60,6 +60,21 @@ func _ready() -> void:
 	health_changed.connect(UILayer.UI_root.update_health)
 	health_changed.emit(health, max_health)
 	gravity_multiplier = normal_gravity_multiplier
+	if health <= 0:
+		health = max_health
+	
+	var spawn_id: String = SceneManager.pending_spawn_id
+	print("Pending spawn: '", spawn_id, "'")
+	if spawn_id != "":
+		var points = get_tree().get_nodes_in_group("spawn_points")
+		print("Spawn points found: ", points.size())
+		for point in points:
+			print("  checking '", point.get_spawn_id(), "'")
+			if point.get_spawn_id() == spawn_id:
+				global_position = point.global_position
+				print("  matched, moved to ", global_position)
+				break
+		SceneManager.pending_spawn_id = ""
 	
 func _physics_process(delta: float) -> void:
 	
@@ -383,11 +398,12 @@ func die():
 	$sfx.stream = deadsfx
 	$sfx.play()
 	await get_tree().create_timer(2.0).timeout
-	position = Vector2(-62, -16)
 	set_health(max_health)
-	dead = false
-	$CollisionShape2D.disabled = false
-	set_physics_process(true)
+	
+	var scene_path: String = SaveManager.game_state["last_scene"]
+	if scene_path == "":
+		scene_path = get_tree().current_scene.scene_file_path
+	SceneManager.go_to(scene_path, SaveManager.game_state["last_checkpoint"])
 	
 func get_pickup():
 	
@@ -438,8 +454,7 @@ func _on_airsword_area_entered(area: Node2D) -> void:
 @warning_ignore("unused_parameter")
 func _unhandled_input(event: InputEvent) ->void:
 	if Input.is_action_just_pressed("reset"):
-		SaveManager.set_player_value("has_air_attack", false)
-		SaveManager.set_player_value("has_dash", false)
+		SaveManager.new_game()
 		get_tree().reload_current_scene()
 
 
