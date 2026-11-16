@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://hci46fbkh2mo" path="res://Assets/Scenes/Obstacles/spike.tscn" id="4_6diyp"]
 [ext_resource type="PackedScene" uid="uid://cyjrr6lrailc1" path="res://Assets/Scenes/Obstacles/mushroom.tscn" id="5_ful3c"]
 [ext_resource type="PackedScene" uid="uid://8smeegy5uyit" path="res://Assets/Scenes/Enemies/boss.tscn" id="5_stm8b"]
+[ext_resource type="PackedScene" uid="uid://b81ddgsautd1n" path="res://Assets/Scenes/Misc/boss_spike.tscn" id="7_rr4bj"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_diuls"]
 
@@ -179,10 +180,10 @@ scenes/1/scene = ExtResource("5_ful3c")
 tile_size = Vector2i(155, 155)
 sources/0 = SubResource("TileSetScenesCollectionSource_rr4bj")
 
-[node name="BossTestArena" type="Node2D" unique_id=580756758]
+[node name="BossTestArena" type="Node2D" unique_id=580756758 groups=["spike_controller"]]
 
 [node name="Player" parent="." unique_id=1833664872 groups=["player"] instance=ExtResource("1_negnu")]
-position = Vector2(770, -77)
+position = Vector2(216, 47)
 
 [node name="tile1_main" type="TileMapLayer" parent="." unique_id=976958851]
 scale = Vector2(0.4, 0.4)
@@ -203,29 +204,123 @@ tile_set = SubResource("TileSet_biyew")
 tile_map_data = PackedByteArray("AAADAP//AAAAAAAAAQAEAP//AAAAAAAAAQA=")
 tile_set = SubResource("TileSet_kd4fp")
 
-[node name="Boss" parent="." unique_id=1590839454 instance=ExtResource("5_stm8b")]
+[node name="Boss" parent="." unique_id=1590839454 node_paths=PackedStringArray("ceiling_spikes_right", "ceiling_spikes_left") instance=ExtResource("5_stm8b")]
 position = Vector2(1110.0001, 15.000001)
 scale = Vector2(1.4, 1.4)
+ceiling_spikes_right = [NodePath("../Boss Spikes/boss_spike"), NodePath("../Boss Spikes/boss_spike2"), NodePath("../Boss Spikes/boss_spike3"), NodePath("../Boss Spikes/boss_spike4"), NodePath("../Boss Spikes/boss_spike5"), NodePath("../Boss Spikes/boss_spike6"), NodePath("../Boss Spikes/boss_spike7"), NodePath("../Boss Spikes/boss_spike8"), NodePath("../Boss Spikes/boss_spike9"), NodePath("../Boss Spikes/boss_spike10"), NodePath("../Boss Spikes/boss_spike11"), NodePath("../Boss Spikes/boss_spike12"), NodePath("../Boss Spikes/boss_spike13"), NodePath("../Boss Spikes/boss_spike14"), NodePath("../Boss Spikes/boss_spike15")]
+ceiling_spikes_left = [NodePath("../Boss Spikes/boss_spike30"), NodePath("../Boss Spikes/boss_spike29"), NodePath("../Boss Spikes/boss_spike28"), NodePath("../Boss Spikes/boss_spike27"), NodePath("../Boss Spikes/boss_spike26"), NodePath("../Boss Spikes/boss_spike25"), NodePath("../Boss Spikes/boss_spike24"), NodePath("../Boss Spikes/boss_spike23"), NodePath("../Boss Spikes/boss_spike22"), NodePath("../Boss Spikes/boss_spike21"), NodePath("../Boss Spikes/boss_spike20"), NodePath("../Boss Spikes/boss_spike19"), NodePath("../Boss Spikes/boss_spike18"), NodePath("../Boss Spikes/boss_spike17"), NodePath("../Boss Spikes/boss_spike16")]
+
+[node name="Boss Spikes" type="Node2D" parent="." unique_id=1370143664]
+
+[node name="boss_spike" parent="Boss Spikes" unique_id=537166116 instance=ExtResource("7_rr4bj")]
+position = Vector2(1152, -512)
+
+[node name="boss_spike2" parent="Boss Spikes" unique_id=2012188787 instance=ExtResource("7_rr4bj")]
+position = Vector2(1090, -512)
+
+[node name="boss_spike3" parent="Boss Spikes" unique_id=936337874 instance=ExtResource("7_rr4bj")]
+position = Vector2(1028, -512)
+
+[node name="boss_spike4" parent="Boss Spikes" unique_id=1221431986 instance=ExtResource("7_rr4bj")]
+position = Vector2(966, -512)
+
+[node name="boss_spike5" parent="Boss Spikes" unique_id=1029349386 instance=ExtResource("7_rr4bj")]
+position = Vector2(904, -512)
+
+[node name="boss_spike6" parent="Boss Spikes" unique_id=395378667 instance=ExtResource("7_rr4bj")]
+position = Vector2(842, -512)
+
+[node name="boss_spike7" parent="Boss Spikes" unique_id=2019438964 instance=ExtResource("7_rr4bj")]
+position = Vector2(780, -512)
+
+[node name="boss_spike8" parent="Boss Spikes" unique_id=1590219812 instance=ExtResource("7_rr4bj")]
+position = Vector2(718, -512)
+
+[node name="boss_spike9" parent="Boss Spikes" unique_id=774989644 instance=ExtResource("7_rr4bj")]
+position = Vector2(656, -512)
+
+[node name="boss_spike10" parent="Boss Spikes" unique_id=177770472 instance=ExtResource("7_rr4bj")]
+position = Vector2(594, -512)
+
+[node name="boss_spike11" parent="Boss Spikes" unique_id=1755052560 instance=ExtResource("7_rr4bj")]
+position = Vector2(532, -512)
+
+[node name="boss_spike12" parent="Boss Spikes" unique_id=1722897204 instance=ExtResource("7_rr4bj")]
+position = Vector2(470, -512)
+
+[node name="boss_spike13" parent="Boss Spikes" unique_id=870922753 instance=ExtResource("7_rr4bj")]
+position = Vector2(408, -512)
+
+[node name="boss_spike14" parent="Boss Spikes" unique_id=681275937 instance=ExtResource("7_rr4bj")]
+position = Vector2(346, -512)
+
+[node name="boss_spike15" parent="Boss Spikes" unique_id=1855732977 instance=ExtResource("7_rr4bj")]
+position = Vector2(284, -512)
+
+[node name="boss_spike16" parent="Boss Spikes" unique_id=1418177031 instance=ExtResource("7_rr4bj")]
+position = Vector2(222, -512)
+
+[node name="boss_spike17" parent="Boss Spikes" unique_id=1680756200 instance=ExtResource("7_rr4bj")]
+position = Vector2(160, -512)
+
+[node name="boss_spike18" parent="Boss Spikes" unique_id=1579318169 instance=ExtResource("7_rr4bj")]
+position = Vector2(98, -512)
+
+[node name="boss_spike19" parent="Boss Spikes" unique_id=1506079843 instance=ExtResource("7_rr4bj")]
+position = Vector2(36, -512)
+
+[node name="boss_spike20" parent="Boss Spikes" unique_id=1179587930 instance=ExtResource("7_rr4bj")]
+position = Vector2(-26, -512)
+
+[node name="boss_spike21" parent="Boss Spikes" unique_id=563315853 instance=ExtResource("7_rr4bj")]
+position = Vector2(-88, -512)
+
+[node name="boss_spike22" parent="Boss Spikes" unique_id=1467502662 instance=ExtResource("7_rr4bj")]
+position = Vector2(-150, -512)
+
+[node name="boss_spike23" parent="Boss Spikes" unique_id=337209447 instance=ExtResource("7_rr4bj")]
+position = Vector2(-212, -512)
+
+[node name="boss_spike24" parent="Boss Spikes" unique_id=1875916906 instance=ExtResource("7_rr4bj")]
+position = Vector2(-274, -512)
+
+[node name="boss_spike25" parent="Boss Spikes" unique_id=1578890280 instance=ExtResource("7_rr4bj")]
+position = Vector2(-336, -512)
+
+[node name="boss_spike26" parent="Boss Spikes" unique_id=1852056237 instance=ExtResource("7_rr4bj")]
+position = Vector2(-398, -512)
+
+[node name="boss_spike27" parent="Boss Spikes" unique_id=1000949123 instance=ExtResource("7_rr4bj")]
+position = Vector2(-460, -512)
+
+[node name="boss_spike28" parent="Boss Spikes" unique_id=30340238 instance=ExtResource("7_rr4bj")]
+position = Vector2(-522, -512)
+
+[node name="boss_spike29" parent="Boss Spikes" unique_id=1695284932 instance=ExtResource("7_rr4bj")]
+position = Vector2(-584, -512)
+
+[node name="boss_spike30" parent="Boss Spikes" unique_id=731149116 instance=ExtResource("7_rr4bj")]
+position = Vector2(-646, -512)
 
 [connection signal="body_entered" from="tile1_main/spikes/spike" to="tile1_main/spikes/spike" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/spikes/@Area2D@38046" to="tile1_main/spikes/@Area2D@38046" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/spikes/@Area2D@38047" to="tile1_main/spikes/@Area2D@38047" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/spikes/@Area2D@38048" to="tile1_main/spikes/@Area2D@38048" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/spikes/@Area2D@38049" to="tile1_main/spikes/@Area2D@38049" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/spikes/@Area2D@38050" to="tile1_main/spikes/@Area2D@38050" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/spikes/@Area2D@38051" to="tile1_main/spikes/@Area2D@38051" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/spikes/@Area2D@38052" to="tile1_main/spikes/@Area2D@38052" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/spikes/@Area2D@38053" to="tile1_main/spikes/@Area2D@38053" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/spikes/@Area2D@38054" to="tile1_main/spikes/@Area2D@38054" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/spikes/@Area2D@38055" to="tile1_main/spikes/@Area2D@38055" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/spikes/@Area2D@38056" to="tile1_main/spikes/@Area2D@38056" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/spikes/@Area2D@38057" to="tile1_main/spikes/@Area2D@38057" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/spikes/@Area2D@38058" to="tile1_main/spikes/@Area2D@38058" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/spikes/@Area2D@38059" to="tile1_main/spikes/@Area2D@38059" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/spikes/@Area2D@38060" to="tile1_main/spikes/@Area2D@38060" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/spikes/@Area2D@38061" to="tile1_main/spikes/@Area2D@38061" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/spikes/@Area2D@38062" to="tile1_main/spikes/@Area2D@38062" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/spikes/@Area2D@38063" to="tile1_main/spikes/@Area2D@38063" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/spikes/@Area2D@38064" to="tile1_main/spikes/@Area2D@38064" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/spikes/@Area2D@219104" to="tile1_main/spikes/@Area2D@219104" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/spikes/@Area2D@219105" to="tile1_main/spikes/@Area2D@219105" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/spikes/@Area2D@219106" to="tile1_main/spikes/@Area2D@219106" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/spikes/@Area2D@219107" to="tile1_main/spikes/@Area2D@219107" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/spikes/@Area2D@219108" to="tile1_main/spikes/@Area2D@219108" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/spikes/@Area2D@219109" to="tile1_main/spikes/@Area2D@219109" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/spikes/@Area2D@219110" to="tile1_main/spikes/@Area2D@219110" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/spikes/@Area2D@219111" to="tile1_main/spikes/@Area2D@219111" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/spikes/@Area2D@219112" to="tile1_main/spikes/@Area2D@219112" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/spikes/@Area2D@219113" to="tile1_main/spikes/@Area2D@219113" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/spikes/@Area2D@219114" to="tile1_main/spikes/@Area2D@219114" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/spikes/@Area2D@219115" to="tile1_main/spikes/@Area2D@219115" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/spikes/@Area2D@219116" to="tile1_main/spikes/@Area2D@219116" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/spikes/@Area2D@219117" to="tile1_main/spikes/@Area2D@219117" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/spikes/@Area2D@219118" to="tile1_main/spikes/@Area2D@219118" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/spikes/@Area2D@219119" to="tile1_main/spikes/@Area2D@219119" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/spikes/@Area2D@219120" to="tile1_main/spikes/@Area2D@219120" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/spikes/@Area2D@219121" to="tile1_main/spikes/@Area2D@219121" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/spikes/@Area2D@219122" to="tile1_main/spikes/@Area2D@219122" method="_on_body_entered"]
 [connection signal="body_entered" from="tile1_main/mushrooms/mushroom" to="tile1_main/mushrooms/mushroom" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/mushrooms/@Area2D@36581" to="tile1_main/mushrooms/@Area2D@36581" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/mushrooms/@Area2D@219123" to="tile1_main/mushrooms/@Area2D@219123" method="_on_body_entered"]

@@ -6,15 +6,16 @@ var health: int
 @export var move_speed: float = 200.0
 @export var patrol_distance: float = 1600.0
 @export var contact_damage: int = 1
-@export var damage_cooldown: float = 0.75
+@export var spike_cooldown: float = 0.2
+@export var ceiling_spikes_right: Array[CharacterBody2D] = []
+@export var ceiling_spikes_left: Array[CharacterBody2D] = []
 
 var start_position: Vector2 = Vector2(1110.0, 15.0)
 var left_point: float = -600.0
 var right_point: float = 1110.0
 var direction: int = 1
-var can_damage: bool = true
 var grounded_dash_speed: float = 1400.0
-var roll = randi_range(1, 2)
+var roll = randi_range(1, 3)
 var attack_cooldown: float = 2.0
 var dashes_remaining: int = 0
 var jump_velocity: int = -400
@@ -38,10 +39,16 @@ func _ready():
 
 func _physics_process(delta):
 	if roll == 1:
+		print("Dashing!")
 		dash(randi_range(1, 4))
 		roll = 0
 	elif roll == 2:
+		print("Jumping!")
 		jump()
+		roll = 0
+	elif roll == 3:
+		print("Summoning Spikes!")
+		summon_spikes()
 		roll = 0
 
 	if not is_on_floor() and not dashing:
@@ -57,20 +64,12 @@ func _physics_process(delta):
 
 
 func damage_player(player):
-	if !can_damage:
-		return
-	
-	can_damage = false
 	if animated_sprite.flip_h:
 		player.take_damage(contact_damage, 1, true)
 	else:
 		player.take_damage(contact_damage, -1, true)
 	
 	print("Boss damaged player")
-	
-	await get_tree().create_timer(damage_cooldown).timeout
-	
-	can_damage = true
 
 
 func take_damage(
@@ -109,7 +108,7 @@ func update_dash_state() -> void:
 		animated_sprite.flip_h = !animated_sprite.flip_h
 		print("Done Dashing")
 		await get_tree().create_timer(attack_cooldown).timeout
-		roll = randi_range(1, 2)
+		roll = randi_range(1, 3)
 		return
 	
 	direction *= -1
@@ -135,8 +134,32 @@ func jump() -> void:
 	dashing = false
 	print("Done Air Attacking")
 	await get_tree().create_timer(attack_cooldown).timeout
-	roll = randi_range(1, 2)
+	roll = randi_range(1, 3)
+
+func summon_spikes() -> void:
+	summon_spikes_right()
+	summon_spikes_left()
 	
+func summon_spikes_right() -> void:
+	for spike in ceiling_spikes_right:
+		if !spike.has_method("fall"):
+			continue
+		if randi_range(1, 3) > 1:
+			print("Dropping a Spike")
+			spike.fall()
+		await get_tree().create_timer(spike_cooldown).timeout
+	print("Out of Right Spikes!")
+	roll = randi_range(1, 3)
+
+func summon_spikes_left() -> void:
+	for spike in ceiling_spikes_left:
+		if !spike.has_method("fall"):
+			continue
+		if randi_range(1, 3) > 1:
+			print("Dropping a Spike")
+			spike.fall()
+		await get_tree().create_timer(spike_cooldown).timeout
+	print("Out of Left Spikes!")
 
 func die():
 	queue_free()
