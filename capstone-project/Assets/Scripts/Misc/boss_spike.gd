@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var damage: int = 2
 @export var fall_speed: int = 500
 @export var stop_position: int = 120
+@export var pause: float = 0.5
 
 var falling = false
 var spawn_position: Vector2
@@ -17,7 +18,8 @@ func _ready():
 	sprite.hide()
 
 func _physics_process(delta: float) -> void:
-	if position.y > stop_position and falling:
+	if falling and velocity.y == 0:
+		await get_tree().create_timer(pause)
 		sprite.hide()
 		hitbox.disabled = true
 		falling = false

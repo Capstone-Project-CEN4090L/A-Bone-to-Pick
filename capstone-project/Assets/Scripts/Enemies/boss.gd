@@ -109,6 +109,8 @@ func update_dash_state() -> void:
 		print("Done Dashing")
 		await get_tree().create_timer(attack_cooldown).timeout
 		roll = randi_range(1, 3)
+		while roll == 1:
+			roll = randi_range(1, 3)
 		return
 	
 	direction *= -1
@@ -135,6 +137,8 @@ func jump() -> void:
 	print("Done Air Attacking")
 	await get_tree().create_timer(attack_cooldown).timeout
 	roll = randi_range(1, 3)
+	while roll == 2:
+		roll = randi_range(1, 3)
 
 func summon_spikes() -> void:
 	summon_spikes_right()
@@ -144,22 +148,18 @@ func summon_spikes_right() -> void:
 	for spike in ceiling_spikes_right:
 		if !spike.has_method("fall"):
 			continue
-		if randi_range(1, 3) > 1:
-			print("Dropping a Spike")
-			spike.fall()
+		spike.fall()
 		await get_tree().create_timer(spike_cooldown).timeout
-	print("Out of Right Spikes!")
 	roll = randi_range(1, 3)
+	while roll == 3:
+		roll = randi_range(1, 3)
 
 func summon_spikes_left() -> void:
 	for spike in ceiling_spikes_left:
 		if !spike.has_method("fall"):
 			continue
-		if randi_range(1, 3) > 1:
-			print("Dropping a Spike")
-			spike.fall()
+		spike.fall()
 		await get_tree().create_timer(spike_cooldown).timeout
-	print("Out of Left Spikes!")
 
 func die():
 	queue_free()

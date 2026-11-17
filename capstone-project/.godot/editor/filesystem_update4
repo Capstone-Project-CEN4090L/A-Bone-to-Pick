@@ -1,7 +1,6 @@
-res://Assets/Scenes/Enemies/pouncer.tscn
-res://Assets/Scenes/Misc/sans.tscn
-res://Assets/Scripts/Misc/boss_spike.gd
-res://Assets/Scenes/Misc/boss_spike.tscn
-res://Assets/Scripts/Enemies/boss.gd
+res://Assets/Scenes/Enemies/bulky.tscn
+res://Assets/Scenes/Enemies/fast.tscn
 res://Assets/Scenes/Areas/boss_test_arena.tscn
-res://Assets/Scripts/UI/ui_root.gd
+res://Assets/Scenes/Misc/boss_spike.tscn
+res://Assets/Scripts/Misc/boss_spike.gd
+res://Assets/Scripts/Enemies/boss.gd
