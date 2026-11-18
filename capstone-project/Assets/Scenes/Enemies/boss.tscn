@@ -24,7 +24,7 @@ size = Vector2(62.00001, 131.60002)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kd4fp"]
 size = Vector2(146.00002, 76.85716)
 
-[node name="Boss" type="CharacterBody2D" unique_id=1590839454]
+[node name="Boss" type="CharacterBody2D" unique_id=1590839454 groups=["boss"]]
 z_index = -1
 scale = Vector2(3.5, 3.5)
 collision_layer = 8

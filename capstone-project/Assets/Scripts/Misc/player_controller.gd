@@ -46,7 +46,7 @@ var boostsfx = preload("res://Assets/Sounds/boost.mp3")
 var getupsfx = preload("res://Assets/Sounds/getup.mp3")
 var deadsfx = preload("res://Assets/Sounds/fart.mp3")
 
-# Player character is temporarily named "skele"
+# Player character is named "skele"
 @onready var skele: AnimatedSprite2D = $AgentAnimator/AnimatedSprite2D
 @onready var skele_hitbox: CollisionShape2D = $CollisionShape2D
 @onready var skele_sword: AnimationPlayer = $AgentAnimator/AnimationPlayer
@@ -54,7 +54,6 @@ var deadsfx = preload("res://Assets/Sounds/fart.mp3")
 @onready var sword: Area2D = $AgentAnimator/AnimatedSprite2D/sword
 @onready var airsword: Area2D = $AgentAnimator/AnimatedSprite2D/airsword
 @onready var coyote_time: Timer = $CoyoteTime
-@onready var sprite: AnimatedSprite2D = $AgentAnimator/AnimatedSprite2D
 
 signal health_changed(current: int, maximum: int)
 
@@ -66,7 +65,7 @@ func _ready() -> void:
 	gravity_multiplier = normal_gravity_multiplier
 	
 func _physics_process(delta: float) -> void:
-	
+
 	if Input.is_action_just_pressed("toggle_knockback"):
 		toggle_knockback_upgrade()
 
@@ -98,6 +97,10 @@ func _physics_process(delta: float) -> void:
 	# Attack
 	if Input.is_action_just_pressed("attack"):
 		if not is_on_floor() and can_airattack and !is_airattacking and SaveManager.get_player_value("has_air_attack"):
+			if dashing:
+				dashing = false
+				skele_hitbox.position = Vector2(-1, 9.758)
+				skele_hitbox.shape.size = Vector2(14.679, 28.463)
 			is_attacking = false
 			can_airattack = false
 			is_airattacking = true
@@ -117,6 +120,9 @@ func _physics_process(delta: float) -> void:
 				
 		# Aerial boost, refreshes upon landing
 	if Input.is_action_just_pressed("dash") and dashing == false and can_dash and !is_on_floor() and SaveManager.get_player_value("has_dash"):
+		dashing = true
+		skele_hitbox.position = Vector2(-1, 0)
+		skele_hitbox.shape.size = Vector2(30, 10)
 		if is_airattacking:
 			is_airattacking = false
 			skele_sword.stop()
@@ -127,7 +133,6 @@ func _physics_process(delta: float) -> void:
 		$boost.play()
 		can_dash = false
 		velocity.x = dash_speed * dir
-		dashing = false
 		pass
 
 	# Refreshes jump, double jump and dash upon touching the ground
@@ -136,6 +141,10 @@ func _physics_process(delta: float) -> void:
 		can_doublejump = true
 		can_dash = true
 		can_airattack = false
+		if dashing:
+			dashing = false
+			skele_hitbox.position = Vector2(-1, 9.758)
+			skele_hitbox.shape.size = Vector2(14.679, 28.463)
 	
 	# Called when player falls off map, respawns at a set location
 	if (position.y >= 1000):
@@ -190,7 +199,11 @@ func _physics_process(delta: float) -> void:
 
 		# Double jump function
 		# IMPORTANT: Order before jump so it doesn't trigger during the same jump input
-		if Input.is_action_just_pressed("up") and !can_jump and can_doublejump:
+		if Input.is_action_just_pressed("up") and !can_jump and SaveManager.get_player_value("has_double_jump") and can_doublejump:
+				if dashing:
+					dashing = false
+					skele_hitbox.position = Vector2(-1, 9.758)
+					skele_hitbox.shape.size = Vector2(14.679, 28.463)
 				$sfx.stream = dubjumpsfx
 				$sfx.play()
 				can_doublejump = false
@@ -211,10 +224,10 @@ func _physics_process(delta: float) -> void:
 			velocity.y = JUMP_VELOCITY
 			skele.play("jump")
 			
-		if dashing == false and !is_on_floor():
-			if Input.is_action_pressed("ui_left") and !dashing == true:
+		if !is_on_floor():
+			if Input.is_action_pressed("ui_left"):
 				velocity.x = lerp(velocity.x, -walk_speed, lerprate)
-			if Input.is_action_pressed("ui_right") and !dashing == true:
+			if Input.is_action_pressed("ui_right"):
 				velocity.x = lerp(velocity.x, walk_speed, lerprate)
 			elif !Input.is_action_pressed("ui_left") and !Input.is_action_pressed("ui_right"):
 				velocity.x = lerp(velocity.x, 0.0, 0.1)
@@ -234,6 +247,14 @@ func _physics_process(delta: float) -> void:
 			else:
 				SaveManager.set_player_value("has_air_attack", true)
 				print("Air Attack enabled")
+		if Input.is_action_just_pressed("debug_unlock_double_jump"):
+			if SaveManager.get_player_value("has_double_jump"):
+				SaveManager.set_player_value("has_double_jump", false)
+				print("Double Jump disabled")
+			else:
+				SaveManager.set_player_value("has_double_jump", true)
+				print("Double Jump enabled")
+
 	move_and_slide()
 	
 	if is_on_floor() and is_airattacking:
@@ -299,22 +320,11 @@ func cancel_air_attack() -> void:
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if !is_processing_input():
 		set_process_input(true)
-	if is_getup:
-		skele.play("idle")
-		is_getup = false
-	if skele.animation == "shoot":
-		skele.play("idle")
-	if skele.animation == "roll":
-		skele.play("walk")
-	if skele.animation == "walkshoot":
-		skele.play("walk")
-	if skele.animation == "boostshoot":
-		skele.play("boost")
-	if skele.animation == "airshoot":
-		skele.play("jump")
-	if skele.animation == "djshoot":
-		skele.play("doublejump")
 	if skele.animation == "boost":
+		if dashing:
+			dashing = false
+			skele_hitbox.position = Vector2(-1, 9.758)
+			skele_hitbox.shape.size = Vector2(14.679, 28.463)
 		if can_doublejump:
 			skele.play("jump")
 		else:
@@ -347,9 +357,9 @@ func take_damage(amount: int = 1, hitdirection: int = 0, bosshit: bool = false) 
 	set_health(health - amount)
 	print("Player Health: ", health)
 
-	sprite.modulate = Color(1, 0, 0)
+	skele.modulate = Color(1, 0, 0)
 	var tween = create_tween()
-	tween.tween_property(sprite, "modulate", Color(1, 1, 1), 0.2)
+	tween.tween_property(skele, "modulate", Color(1, 1, 1), 0.2)
 
 	if health <= 0:
 		die()
@@ -435,23 +445,25 @@ func _on_sword_body_entered(body: Node2D) -> void:
 			body.take_damage(10, hit_direction, knockback_amount)
 
 func _on_airsword_body_entered(body: Node2D):
-	if is_airattacking == true:
-		if body.has_method("take_damage"):
-			velocity.y = JUMP_VELOCITY
-			can_airattack = true
-			can_dash = true
-			can_doublejump = true
-			var hit_direction = Vector2.RIGHT
-			
-			if skele.flip_h:
-				hit_direction = Vector2.LEFT
-			
-			var knockback_amount = normal_knockback
-			
-			if knockback_upgrade_unlocked and extra_knockback_enabled:
-				knockback_amount = upgraded_knockback
-			
-			body.take_damage(10, hit_direction, knockback_amount)
+	if is_airattacking == true and body.has_method("take_damage"):
+		if body.is_in_group("boss") and body.invincible:
+			return
+		
+		velocity.y = JUMP_VELOCITY
+		can_airattack = true
+		can_dash = true
+		can_doublejump = true
+		var hit_direction = Vector2.RIGHT
+		
+		if skele.flip_h:
+			hit_direction = Vector2.LEFT
+		
+		var knockback_amount = normal_knockback
+		
+		if knockback_upgrade_unlocked and extra_knockback_enabled:
+			knockback_amount = upgraded_knockback
+		
+		body.take_damage(10, hit_direction, knockback_amount)
 			
 func _on_airsword_area_entered(area: Node2D) -> void:
 	if is_airattacking and area.has_method("take_damage"):
@@ -466,6 +478,7 @@ func _unhandled_input(event: InputEvent) ->void:
 	if Input.is_action_just_pressed("reset"):
 		SaveManager.set_player_value("has_air_attack", false)
 		SaveManager.set_player_value("has_dash", false)
+		SaveManager.set_player_value("has_double_jump", false)
 		get_tree().reload_current_scene()
 
 

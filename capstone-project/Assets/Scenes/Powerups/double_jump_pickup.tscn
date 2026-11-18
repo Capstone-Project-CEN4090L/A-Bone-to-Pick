@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c66s285decul2"]
 
-[ext_resource type="Script" path="res://Assets/Scripts/Powerups/double_jump_pickup.gd" id="1_jupke"]
+[ext_resource type="Script" uid="uid://bfi8dkrdhe4qs" path="res://Assets/Scripts/Powerups/double_jump_pickup.gd" id="1_jupke"]
 [ext_resource type="Texture2D" uid="uid://dgh4ns25ve8ha" path="res://icon.svg" id="2_jd7ed"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_biyew"]
