@@ -24,6 +24,10 @@ var is_attacking = false
 @export var normal_gravity_multiplier: float = 1.5
 @export var low_gravity_multiplier: float = 0.3
 
+# ARMANI'S FIX #1: make fall limit and respawn location adjustable per level instead of hard-coded
+@export var fall_limit_y: float = 512.0
+@export var fall_respawn_position: Vector2 = Vector2(-62, -78)
+
 var gravity_multiplier: float = 1.5
 var low_gravity_active: bool = false
 
@@ -130,14 +134,18 @@ func _physics_process(delta: float) -> void:
 		can_airattack = false
 	
 	# Called when player falls off map, respawns at a set location
-	if (position.y >= 512):
+	# if (position.y >= 512):
 		#velocity = Vector2.ZERO
 		#$fall.stream = fallsfx
 		#$fall.play()
 		#tag.play("fall")
 		#position = Vector2(200, -700)
-		position = Vector2(-62, -78)
-
+		# position = Vector2(-62, -78)
+		
+	# ARMANI'S FIX #1
+	if global_position.y >= fall_limit_y:
+		global_position = fall_respawn_position
+		velocity = Vector2.ZERO
 		
 	# Player loses control when "fall"ing, so movement functions are disabled.
 	# Functions such as gravity continue to work (below).

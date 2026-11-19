@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://co7awcp7icddl"]
+[gd_scene format=4 uid="uid://cwoa5j3a4uuk0"]
 
 [ext_resource type="PackedScene" uid="uid://4m4jvu72r70s" path="res://Assets/Scenes/Powerups/air_attack_pickup.tscn" id="1_ry0fq"]
 [ext_resource type="PackedScene" uid="uid://dtdatxw4qqmp1" path="res://Assets/Scenes/Powerups/dash_pickup.tscn" id="2_pxhs8"]
