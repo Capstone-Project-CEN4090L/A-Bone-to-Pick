@@ -1,0 +1,8 @@
+res://Assets/Scripts/Enemies/boss.gd
+res://Assets/Scripts/Misc/player_controller.gd
+res://Assets/Scenes/Areas/boss_test_arena.tscn
+res://Autoloads/SaveManager.gd
+res://Assets/Scenes/Powerups/double_jump_pickup.tscn
+res://Assets/Scripts/Powerups/double_jump_pickup.gd
+res://Assets/Scenes/Misc/player.tscn
+res://Assets/Scenes/Enemies/boss.tscn
