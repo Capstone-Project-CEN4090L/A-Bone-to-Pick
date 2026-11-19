@@ -1,4 +1,15 @@
-res://Assets/Scenes/Enemies/bulky.tscn
+res://pouncer.gd
+res://Assets/Scenes/Obstacles/spike.tscn
+res://Assets/Scenes/UI/UI_root.tscn
+res://Assets/Scripts/Enemies/boss.gd
 res://Assets/Scripts/Enemies/bulky.gd
+res://Assets/Scripts/Enemies/pouncer.gd
+res://Assets/Scripts/Misc/boss_spike.gd
+res://Assets/Scripts/Misc/player_controller.gd
+res://Assets/Scripts/Obstacles/spikes.gd
+res://Assets/Scripts/Powerups/double_jump_pickup.gd
+res://Assets/Scripts/UI/main_menu.gd
+res://Assets/Scripts/UI/ui_root.gd
+res://Autoloads/SaveManager.gd
+res://Autoloads/SceneManager.gd
 res://Assets/Scenes/Areas/Level1_1.tscn
-res://Assets/Scenes/Areas/raul_test_ground.tscn

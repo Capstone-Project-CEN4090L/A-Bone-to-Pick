@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 @export var full_icon: Texture2D
+@export var half_icon: Texture2D
 @export var empty_icon: Texture2D
 
 @onready var health_icons: HBoxContainer = $HealthIcons
