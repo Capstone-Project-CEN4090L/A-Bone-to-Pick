@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://w4la0yn65g0p" path="res://Assets/Scenes/Enemies/pouncer.tscn" id="12_ua4we"]
 [ext_resource type="PackedScene" uid="uid://cnpj10xpkvye6" path="res://Assets/Scenes/Misc/sans.tscn" id="14_ncgo2"]
 [ext_resource type="Script" uid="uid://5yw6u8aqtaam" path="res://Assets/Scripts/Enemies/flying.gd" id="15_f2hv4"]
+[ext_resource type="PackedScene" uid="uid://dtkop6osm3u8k" path="res://Assets/Scenes/Enemies/bulky.tscn" id="16_f2hv4"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_diuls"]
 
@@ -290,7 +291,7 @@ get up here
 horizontal_alignment = 1
 
 [node name="pouncer" parent="." unique_id=2133663499 instance=ExtResource("12_ua4we")]
-position = Vector2(185, -42)
+position = Vector2(705, -349)
 
 [node name="FlyingEnemy" parent="." unique_id=1423980247 instance=ExtResource("14_ncgo2")]
 position = Vector2(246, -290)
@@ -310,4 +311,27 @@ collision_layer = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FlyingEnemy/AttackArea" unique_id=485374207]
 shape = SubResource("RectangleShape2D_shmgr")
 
+[node name="bulky" parent="FlyingEnemy" unique_id=582757625 instance=ExtResource("16_f2hv4")]
+position = Vector2(-75.87996, 94.755554)
+scale = Vector2(0.5671007, 0.5671007)
+
+[connection signal="body_entered" from="tile1_main/Mushrooms/mushroom" to="tile1_main/Mushrooms/mushroom" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Mushrooms/@Area2D@24677" to="tile1_main/Mushrooms/@Area2D@24677" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Mushrooms/@Area2D@24678" to="tile1_main/Mushrooms/@Area2D@24678" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Mushrooms/@Area2D@24679" to="tile1_main/Mushrooms/@Area2D@24679" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Mushrooms/@Area2D@24680" to="tile1_main/Mushrooms/@Area2D@24680" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Mushrooms/@Area2D@24681" to="tile1_main/Mushrooms/@Area2D@24681" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Mushrooms/@Area2D@24682" to="tile1_main/Mushrooms/@Area2D@24682" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Mushrooms/@Area2D@24683" to="tile1_main/Mushrooms/@Area2D@24683" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Mushrooms/@Area2D@24684" to="tile1_main/Mushrooms/@Area2D@24684" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/spike" to="tile1_main/Spikes/spike" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@24685" to="tile1_main/Spikes/@Area2D@24685" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@24686" to="tile1_main/Spikes/@Area2D@24686" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@24687" to="tile1_main/Spikes/@Area2D@24687" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@24688" to="tile1_main/Spikes/@Area2D@24688" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@24689" to="tile1_main/Spikes/@Area2D@24689" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@24690" to="tile1_main/Spikes/@Area2D@24690" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@24691" to="tile1_main/Spikes/@Area2D@24691" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@24692" to="tile1_main/Spikes/@Area2D@24692" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@24693" to="tile1_main/Spikes/@Area2D@24693" method="_on_body_entered"]
 [connection signal="body_entered" from="FlyingEnemy/AttackArea" to="FlyingEnemy" method="_on_attack_area_body_entered"]

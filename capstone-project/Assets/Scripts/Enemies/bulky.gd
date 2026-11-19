@@ -46,7 +46,7 @@ func _physics_process(delta):
 		velocity.x = 0
 		
 		if !attacking:
-			sprite.play("idle")
+			sprite.play("goblin")
 		
 		move_and_slide()
 		return
@@ -71,26 +71,26 @@ func _physics_process(delta):
 				velocity.x = direction * move_speed
 			else:
 				velocity.x = 0
-				sprite.play("idle")
+				sprite.play("goblin")
 				move_and_slide()
 				return
 			
 			if direction < 0:
-				sprite.flip_h = false
+				sprite.flip_h = true
 				attack_area.position.x = -abs(attack_area.position.x)
 			else:
-				sprite.flip_h = true
+				sprite.flip_h = false
 				attack_area.position.x = abs(attack_area.position.x)
 			
-			sprite.play("walk")
+			sprite.play("goblin_walk")
 		else:
 			velocity.x = 0
-			sprite.play("idle")
+			sprite.play("goblin")
 	
 	# Enemy stands still if player is too far away
 	elif !attacking:
 		velocity.x = 0
-		sprite.play("idle")
+		sprite.play("goblin")
 	
 	move_and_slide()
 
@@ -100,7 +100,7 @@ func attack():
 	can_attack = false
 	velocity.x = 0
 	
-	sprite.play("attack")
+	sprite.play("goblin_walk")
 	
 	# Delay before the attack actually hits
 	await get_tree().create_timer(0.2).timeout
