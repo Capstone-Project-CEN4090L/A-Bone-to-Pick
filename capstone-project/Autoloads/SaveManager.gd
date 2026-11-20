@@ -27,6 +27,7 @@ func get_default_state() -> Dictionary:
 		"player": {
 			"health": 10,
 			"max_health": 10,
+			"damage": 10,
 			"has_double_jump": false,
 			"has_dash": false,
 			"has_air_attack": false,

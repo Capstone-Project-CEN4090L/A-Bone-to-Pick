@@ -455,7 +455,7 @@ func _on_sword_body_entered(body: Node2D) -> void:
 			if knockback_upgrade_unlocked and extra_knockback_enabled:
 				knockback_amount = upgraded_knockback
 			
-			body.take_damage(10, hit_direction, knockback_amount)
+			body.take_damage(SaveManager.get_player_value("damage"), hit_direction, knockback_amount)
 
 func _on_airsword_body_entered(body: Node2D):
 	if is_airattacking == true and body.has_method("take_damage"):
