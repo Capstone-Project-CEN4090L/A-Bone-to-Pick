@@ -1,10 +1,7 @@
-res://Assets/Scenes/UI/UI_root.tscn
+res://health_pickup.gd
+res://Assets/Scenes/Powerups/health_pickup.tscn
+res://Assets/Scenes/Powerups/low_gravity_pickup.tscn
+res://Assets/Scenes/Areas/boss_test_arena.tscn
+res://Assets/Scripts/Powerups/health_pickup.gd
+res://Assets/Scenes/Powerups/double_jump_pickup.tscn
 res://Assets/Scripts/Misc/player_controller.gd
-res://Autoloads/SaveManager.gd
-res://Assets/Scenes/Areas/Level1_1.tscn
-res://Assets/Scenes/Areas/raul_test_ground.tscn
-res://Assets/Scenes/Misc/SaveStation.tscn
-res://Assets/Scenes/UI/pause_menu.tscn
-res://Assets/Scripts/UI/pause_menu.gd
-res://Assets/Scripts/UI/debug_panel.gd
-res://Autoloads/UILayer.gd

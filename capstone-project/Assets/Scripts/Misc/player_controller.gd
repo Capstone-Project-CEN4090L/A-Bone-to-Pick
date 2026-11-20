@@ -512,3 +512,9 @@ func activate_low_gravity(duration: float):
 	low_gravity_active = false
 	
 	print("Low gravity ended")
+	
+func increase_max_health(amount: int) -> void:
+	max_health += amount
+	
+	SaveManager.set_player_value("max_health", max_health)
+	set_health(max_health)
