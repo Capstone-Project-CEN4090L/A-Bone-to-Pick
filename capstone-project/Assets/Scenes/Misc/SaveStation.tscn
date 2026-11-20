@@ -9,7 +9,6 @@ size = Vector2(126.75, 128.25)
 [node name="SaveStation" type="Area2D" unique_id=1323137895]
 collision_mask = 5
 script = ExtResource("1_vhljj")
-checkpoint_id = "123"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=962653018]
 shape = SubResource("RectangleShape2D_rb3q5")

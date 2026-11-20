@@ -58,8 +58,8 @@ var deadsfx = preload("res://Assets/Sounds/fart.mp3")
 signal health_changed(current: int, maximum: int)
 
 func _ready() -> void:
-	health = int(SaveManager.get_player_value("health", 5))
-	max_health = int(SaveManager.get_player_value("max_health", 5))
+	health = int(SaveManager.get_player_value("health", 10))
+	max_health = int(SaveManager.get_player_value("max_health", 10))
 	health_changed.connect(UILayer.UI_root.update_health)
 	health_changed.emit(health, max_health)
 	gravity_multiplier = normal_gravity_multiplier
@@ -67,17 +67,14 @@ func _ready() -> void:
 		health = max_health
 	
 	var spawn_id: String = SceneManager.pending_spawn_id
-	print("Pending spawn: '", spawn_id, "'")
-	if spawn_id != "":
-		var points = get_tree().get_nodes_in_group("spawn_points")
-		print("Spawn points found: ", points.size())
-		for point in points:
-			print("  checking '", point.get_spawn_id(), "'")
+	if spawn_id == SaveManager.DEBUG_CHECKPOINT_ID:
+		global_position = SaveManager.get_debug_position()
+	elif spawn_id != "":
+		for point in get_tree().get_nodes_in_group("spawn_points"):
 			if point.get_spawn_id() == spawn_id:
 				global_position = point.global_position
-				print("  matched, moved to ", global_position)
 				break
-		SceneManager.pending_spawn_id = ""
+	SceneManager.pending_spawn_id = ""
 	
 func _physics_process(delta: float) -> void:
 
