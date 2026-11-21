@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dse47idt746b5"]
+[gd_scene format=3 uid="uid://cv58ohjng6al1"]
 
 [ext_resource type="PackedScene" uid="uid://cnpj10xpkvye6" path="res://Assets/Scenes/Misc/sans.tscn" id="1_f3i7p"]
 [ext_resource type="Script" uid="uid://5yw6u8aqtaam" path="res://Assets/Scripts/Enemies/flying.gd" id="2_lqenl"]
