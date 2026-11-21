@@ -1,3 +1,4 @@
+res://Assets/Scenes/Areas/
 res://Assets/Scenes/Powerups/
 res://Assets/Sprites/powerups/
 res://Assets/Sprites/UI/
@@ -6,7 +7,6 @@ res://Assets/Sprites/tiles/
 res://Assets/Scenes/Misc/
 res://Assets/Scripts/Misc/
 res://Assets/Scenes/Enemies/
-res://Assets/Scenes/Areas/
 res://Assets/Scripts/Powerups/
 res://Assets/Sprites/tag/
 res://Assets/Scenes/Obstacles/

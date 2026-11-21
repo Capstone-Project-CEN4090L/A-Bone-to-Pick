@@ -266,7 +266,7 @@ tile_map_data = PackedByteArray("AAAAAAMAAAADAAAAAAABAAMAAAADAAAAAAACAAMAAAADAAA
 tile_set = SubResource("TileSet_qsryv")
 
 [node name="Spikes" type="TileMapLayer" parent="tile1_main" unique_id=1258249376]
-tile_map_data = PackedByteArray("AADx/3P/AAAAAAAAAWA+AHP/AAAAAAAAAVA=")
+tile_map_data = PackedByteArray("AADx/3P/AAAAAAAAAWA+AHP/AAAAAAAAAVBbALP+AAAAAAAAAQA=")
 tile_set = SubResource("TileSet_bt8tb")
 
 [node name="Mushrooms" type="TileMapLayer" parent="tile1_main" unique_id=1195483775]
@@ -295,8 +295,9 @@ collision_layer = 0
 shape = SubResource("RectangleShape2D_shmgr")
 
 [connection signal="body_entered" from="tile1_main/Spikes/spike" to="tile1_main/Spikes/spike" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@164414" to="tile1_main/Spikes/@Area2D@164414" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@76116" to="tile1_main/Spikes/@Area2D@76116" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@76557" to="tile1_main/Spikes/@Area2D@76557" method="_on_body_entered"]
 [connection signal="body_entered" from="tile1_main/Mushrooms/mushroom" to="tile1_main/Mushrooms/mushroom" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/Mushrooms/@Area2D@163984" to="tile1_main/Mushrooms/@Area2D@163984" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/Mushrooms/@Area2D@163985" to="tile1_main/Mushrooms/@Area2D@163985" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Mushrooms/@Area2D@76117" to="tile1_main/Mushrooms/@Area2D@76117" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Mushrooms/@Area2D@76118" to="tile1_main/Mushrooms/@Area2D@76118" method="_on_body_entered"]
 [connection signal="body_entered" from="FlyingEnemy/AttackArea" to="FlyingEnemy" method="_on_attack_area_body_entered"]
