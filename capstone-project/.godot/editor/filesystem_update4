@@ -1,0 +1,10 @@
+res://health_pickup.gd
+res://Assets/Scenes/Powerups/health_pickup.tscn
+res://Assets/Scenes/Powerups/low_gravity_pickup.tscn
+res://Assets/Scenes/Areas/boss_test_arena.tscn
+res://Assets/Scripts/Powerups/health_pickup.gd
+res://Assets/Scenes/Powerups/double_jump_pickup.tscn
+res://Assets/Scripts/Misc/player_controller.gd
+res://Assets/Scenes/Powerups/damage_pickup.tscn
+res://Assets/Scripts/Powerups/damage_pickup.gd
+res://Autoloads/SaveManager.gd

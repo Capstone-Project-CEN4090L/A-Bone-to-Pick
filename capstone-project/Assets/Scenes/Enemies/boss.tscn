@@ -24,7 +24,7 @@ size = Vector2(62.00001, 131.60002)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kd4fp"]
 size = Vector2(146.00002, 76.85716)
 
-[node name="Boss" type="CharacterBody2D" unique_id=1590839454]
+[node name="Boss" type="CharacterBody2D" unique_id=1590839454 groups=["boss"]]
 z_index = -1
 scale = Vector2(3.5, 3.5)
 collision_layer = 8
@@ -53,5 +53,7 @@ position = Vector2(0.14286368, -5.571428)
 scale = Vector2(0.9999995, 0.9999995)
 shape = SubResource("RectangleShape2D_kd4fp")
 disabled = true
+
+[node name="sfx" type="AudioStreamPlayer2D" parent="." unique_id=1669655400]
 
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
