@@ -163,7 +163,7 @@ func _physics_process(delta: float) -> void:
 			skele_hitbox.shape.size = Vector2(14.679, 28.463)
 	
 	# Called when player falls off map, respawns at a set location
-	if (position.y >= 1000):
+	#if (position.y >= 1000):
 		#velocity = Vector2.ZERO
 		#$fall.stream = fallsfx
 		#$fall.play()
