@@ -2,8 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://smkqub71176o" path="res://Assets/Scenes/Powerups/low_gravity_pickup.tscn" id="1_a78np"]
 [ext_resource type="PackedScene" uid="uid://4m4jvu72r70s" path="res://Assets/Scenes/Powerups/air_attack_pickup.tscn" id="1_bx7mj"]
-[ext_resource type="PackedScene" uid="uid://dtdatxw4qqmp1" path="res://Assets/Scenes/Powerups/dash_pickup.tscn" id="2_a78np"]
-[ext_resource type="PackedScene" uid="uid://70jcabwr0gh2" path="res://Assets/Scenes/Misc/player.tscn" id="3_3wobo"]
 [ext_resource type="Texture2D" uid="uid://dn014bt2bdakm" path="res://Assets/Sprites/tiles/backgroundv2.png" id="4_2ims8"]
 [ext_resource type="Texture2D" uid="uid://csjrfv3kudcqw" path="res://Assets/Sprites/tiles/sdscdsss.png" id="5_jitie"]
 [ext_resource type="Texture2D" uid="uid://b0ytnld5ah6s4" path="res://Assets/Sprites/tiles/sdscd.png" id="6_ridiq"]
@@ -14,9 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://hci46fbkh2mo" path="res://Assets/Scenes/Obstacles/spike.tscn" id="11_dxxqj"]
 [ext_resource type="PackedScene" uid="uid://cyjrr6lrailc1" path="res://Assets/Scenes/Obstacles/mushroom.tscn" id="12_ujsvu"]
 [ext_resource type="PackedScene" uid="uid://w4la0yn65g0p" path="res://Assets/Scenes/Enemies/pouncer.tscn" id="13_oi2o5"]
-[ext_resource type="PackedScene" uid="uid://cnpj10xpkvye6" path="res://Assets/Scenes/Misc/sans.tscn" id="14_ie7md"]
-[ext_resource type="PackedScene" uid="uid://ccvb7ggifdbq4" path="res://Assets/Scenes/Enemies/flying_enemy.tscn" id="14_jitie"]
-[ext_resource type="Script" uid="uid://5yw6u8aqtaam" path="res://Assets/Scripts/Enemies/flying.gd" id="15_qglrv"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_diuls"]
 
@@ -187,12 +182,6 @@ scenes/1/scene = ExtResource("12_ujsvu")
 [sub_resource type="TileSet" id="TileSet_8w5ac"]
 sources/0 = SubResource("TileSetScenesCollectionSource_6gl7e")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_shmgr"]
-size = Vector2(50, 34)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jitie"]
-size = Vector2(50, 34)
-
 [node name="SkyTestGround" type="Node2D" unique_id=784658993]
 
 [node name="LowGravityPickup" parent="." unique_id=562978495 instance=ExtResource("1_a78np")]
@@ -204,14 +193,6 @@ position = Vector2(193, -4)
 
 [node name="AirAttackPickup" parent="AirAttackPickup" unique_id=678306581 instance=ExtResource("1_bx7mj")]
 position = Vector2(-3537.7803, -4259.606)
-
-[node name="DashPickup" parent="." unique_id=2020669355 instance=ExtResource("2_a78np")]
-position = Vector2(-60, 432)
-
-[node name="Player" parent="." unique_id=1833664872 groups=["player"] instance=ExtResource("3_3wobo")]
-z_index = 3
-position = Vector2(-1472, -2113)
-collision_mask = 1
 
 [node name="Background" type="Node2D" parent="." unique_id=609939598]
 visible = false
@@ -288,79 +269,43 @@ tile_set = SubResource("TileSet_8w5ac")
 position = Vector2(-378, -2112)
 scale = Vector2(2.25, 2.25)
 
-[node name="FlyingEnemy" parent="." unique_id=1423980247 instance=ExtResource("14_ie7md")]
-position = Vector2(216, 508)
-scale = Vector2(2.6489213, 2.6489213)
-collision_layer = 8
-collision_mask = 0
-script = ExtResource("15_qglrv")
-max_health = 30
-move_speed = 120.0
-patrol_distance = 200.0
-contact_damage = 10
-damage_cooldown = 0.75
-
-[node name="AttackArea" type="Area2D" parent="FlyingEnemy" unique_id=560312026]
-collision_layer = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FlyingEnemy/AttackArea" unique_id=485374207]
-shape = SubResource("RectangleShape2D_shmgr")
-
-[node name="fast" parent="." unique_id=1281327331 instance=ExtResource("14_ie7md")]
-position = Vector2(-200.99998, -2087)
-scale = Vector2(2.6489213, 2.6489213)
-collision_layer = 8
-collision_mask = 0
-
-[node name="AttackArea" type="Area2D" parent="fast" unique_id=1991690522]
-collision_layer = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="fast/AttackArea" unique_id=1512083894]
-shape = SubResource("RectangleShape2D_jitie")
-
-[node name="GroundCheck" type="RayCast2D" parent="fast" unique_id=591045586]
-
-[node name="FlyingEnemy2" parent="." unique_id=839433531 instance=ExtResource("14_jitie")]
-position = Vector2(132, -24)
-
 [connection signal="body_entered" from="tile1_main/Spikes/spike" to="tile1_main/Spikes/spike" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@75671" to="tile1_main/Spikes/@Area2D@75671" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@75672" to="tile1_main/Spikes/@Area2D@75672" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@75673" to="tile1_main/Spikes/@Area2D@75673" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@75674" to="tile1_main/Spikes/@Area2D@75674" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@75675" to="tile1_main/Spikes/@Area2D@75675" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@75676" to="tile1_main/Spikes/@Area2D@75676" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@75677" to="tile1_main/Spikes/@Area2D@75677" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@75678" to="tile1_main/Spikes/@Area2D@75678" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@75679" to="tile1_main/Spikes/@Area2D@75679" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@75680" to="tile1_main/Spikes/@Area2D@75680" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@75681" to="tile1_main/Spikes/@Area2D@75681" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@75682" to="tile1_main/Spikes/@Area2D@75682" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@75683" to="tile1_main/Spikes/@Area2D@75683" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@75684" to="tile1_main/Spikes/@Area2D@75684" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@75685" to="tile1_main/Spikes/@Area2D@75685" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@75686" to="tile1_main/Spikes/@Area2D@75686" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@75687" to="tile1_main/Spikes/@Area2D@75687" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@75688" to="tile1_main/Spikes/@Area2D@75688" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@75689" to="tile1_main/Spikes/@Area2D@75689" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@75690" to="tile1_main/Spikes/@Area2D@75690" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@75691" to="tile1_main/Spikes/@Area2D@75691" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@75692" to="tile1_main/Spikes/@Area2D@75692" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@75693" to="tile1_main/Spikes/@Area2D@75693" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@75694" to="tile1_main/Spikes/@Area2D@75694" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@75695" to="tile1_main/Spikes/@Area2D@75695" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@75696" to="tile1_main/Spikes/@Area2D@75696" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@75697" to="tile1_main/Spikes/@Area2D@75697" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@75698" to="tile1_main/Spikes/@Area2D@75698" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@75699" to="tile1_main/Spikes/@Area2D@75699" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@75700" to="tile1_main/Spikes/@Area2D@75700" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@75701" to="tile1_main/Spikes/@Area2D@75701" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@75702" to="tile1_main/Spikes/@Area2D@75702" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@75703" to="tile1_main/Spikes/@Area2D@75703" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@75704" to="tile1_main/Spikes/@Area2D@75704" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@99610" to="tile1_main/Spikes/@Area2D@99610" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@99611" to="tile1_main/Spikes/@Area2D@99611" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@99612" to="tile1_main/Spikes/@Area2D@99612" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@99613" to="tile1_main/Spikes/@Area2D@99613" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@99614" to="tile1_main/Spikes/@Area2D@99614" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@99615" to="tile1_main/Spikes/@Area2D@99615" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@99616" to="tile1_main/Spikes/@Area2D@99616" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@99617" to="tile1_main/Spikes/@Area2D@99617" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@99618" to="tile1_main/Spikes/@Area2D@99618" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@99619" to="tile1_main/Spikes/@Area2D@99619" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@99620" to="tile1_main/Spikes/@Area2D@99620" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@99621" to="tile1_main/Spikes/@Area2D@99621" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@99622" to="tile1_main/Spikes/@Area2D@99622" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@99623" to="tile1_main/Spikes/@Area2D@99623" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@99624" to="tile1_main/Spikes/@Area2D@99624" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@99625" to="tile1_main/Spikes/@Area2D@99625" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@99626" to="tile1_main/Spikes/@Area2D@99626" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@99627" to="tile1_main/Spikes/@Area2D@99627" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@99628" to="tile1_main/Spikes/@Area2D@99628" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@99629" to="tile1_main/Spikes/@Area2D@99629" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@99630" to="tile1_main/Spikes/@Area2D@99630" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@99631" to="tile1_main/Spikes/@Area2D@99631" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@99632" to="tile1_main/Spikes/@Area2D@99632" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@99633" to="tile1_main/Spikes/@Area2D@99633" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@99634" to="tile1_main/Spikes/@Area2D@99634" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@99635" to="tile1_main/Spikes/@Area2D@99635" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@99636" to="tile1_main/Spikes/@Area2D@99636" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@99637" to="tile1_main/Spikes/@Area2D@99637" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@99638" to="tile1_main/Spikes/@Area2D@99638" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@99639" to="tile1_main/Spikes/@Area2D@99639" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@99640" to="tile1_main/Spikes/@Area2D@99640" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@99641" to="tile1_main/Spikes/@Area2D@99641" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@99642" to="tile1_main/Spikes/@Area2D@99642" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@99643" to="tile1_main/Spikes/@Area2D@99643" method="_on_body_entered"]
 [connection signal="body_entered" from="tile1_main/Mushrooms/mushroom" to="tile1_main/Mushrooms/mushroom" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/Mushrooms/@Area2D@75705" to="tile1_main/Mushrooms/@Area2D@75705" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/Mushrooms/@Area2D@75706" to="tile1_main/Mushrooms/@Area2D@75706" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/Mushrooms/@Area2D@75707" to="tile1_main/Mushrooms/@Area2D@75707" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/Mushrooms/@Area2D@75708" to="tile1_main/Mushrooms/@Area2D@75708" method="_on_body_entered"]
-[connection signal="body_entered" from="FlyingEnemy/AttackArea" to="FlyingEnemy" method="_on_attack_area_body_entered"]
+[connection signal="body_entered" from="tile1_main/Mushrooms/@Area2D@99644" to="tile1_main/Mushrooms/@Area2D@99644" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Mushrooms/@Area2D@99645" to="tile1_main/Mushrooms/@Area2D@99645" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Mushrooms/@Area2D@99646" to="tile1_main/Mushrooms/@Area2D@99646" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Mushrooms/@Area2D@99647" to="tile1_main/Mushrooms/@Area2D@99647" method="_on_body_entered"]
