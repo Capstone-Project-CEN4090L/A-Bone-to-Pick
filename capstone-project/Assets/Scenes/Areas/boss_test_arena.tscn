@@ -314,18 +314,3 @@ position = Vector2(-584, -512)
 
 [node name="boss_spike30" parent="Boss Spikes" unique_id=731149116 instance=ExtResource("7_rr4bj")]
 position = Vector2(-646, -512)
-
-[connection signal="body_entered" from="tile1_main/spikes/spike" to="tile1_main/spikes/spike" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/spikes/@Area2D@65029" to="tile1_main/spikes/@Area2D@65029" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/spikes/@Area2D@65030" to="tile1_main/spikes/@Area2D@65030" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/spikes/@Area2D@65031" to="tile1_main/spikes/@Area2D@65031" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/spikes/@Area2D@65032" to="tile1_main/spikes/@Area2D@65032" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/spikes/@Area2D@65033" to="tile1_main/spikes/@Area2D@65033" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/spikes/@Area2D@65034" to="tile1_main/spikes/@Area2D@65034" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/spikes/@Area2D@65035" to="tile1_main/spikes/@Area2D@65035" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/spikes/@Area2D@65036" to="tile1_main/spikes/@Area2D@65036" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/spikes/@Area2D@65037" to="tile1_main/spikes/@Area2D@65037" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/mushrooms/mushroom" to="tile1_main/mushrooms/mushroom" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/mushrooms/@Area2D@65038" to="tile1_main/mushrooms/@Area2D@65038" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/mushrooms/@Area2D@65039" to="tile1_main/mushrooms/@Area2D@65039" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/mushrooms/@Area2D@65040" to="tile1_main/mushrooms/@Area2D@65040" method="_on_body_entered"]

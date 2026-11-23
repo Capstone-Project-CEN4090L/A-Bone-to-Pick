@@ -4,9 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://cd8b8kthcyusl" path="res://Assets/Sprites/pouncer/ftog.png" id="11_8f0s7"]
 [ext_resource type="Texture2D" uid="uid://1pjsxpo8e70i" path="res://Assets/Sprites/pouncer/ftog_wind.png" id="12_55cdb"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vuckr"]
-radius = 12.0
-height = 40.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uts78"]
+size = Vector2(62.000004, 49.333336)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_55cdb"]
 atlas = ExtResource("11_8f0s7")
@@ -73,6 +72,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kwklu"]
+size = Vector2(62.666668, 49.333336)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cj64d"]
 size = Vector2(62.25, 42.25)
 
@@ -85,8 +87,8 @@ script = ExtResource("1_cj64d")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=556822882 groups=["enemies"]]
 light_mask = 6
 visibility_layer = 6
-position = Vector2(0, 6)
-shape = SubResource("CapsuleShape2D_vuckr")
+position = Vector2(0.33333272, 1.3333321)
+shape = SubResource("RectangleShape2D_uts78")
 
 [node name="Node2D" type="Area2D" parent="." unique_id=2040864580]
 collision_layer = 6
@@ -105,8 +107,8 @@ animation = &"pouncer_wind"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D" unique_id=1724849185 groups=["enemies"]]
 light_mask = 6
 visibility_layer = 6
-position = Vector2(0, 6)
-shape = SubResource("CapsuleShape2D_vuckr")
+position = Vector2(6.357829e-07, 1.3333321)
+shape = SubResource("RectangleShape2D_kwklu")
 
 [node name="AttackArea" type="Area2D" parent="." unique_id=458480315]
 position = Vector2(0, 5)
