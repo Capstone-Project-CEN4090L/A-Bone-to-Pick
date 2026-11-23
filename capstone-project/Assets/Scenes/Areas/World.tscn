@@ -16,7 +16,7 @@
 
 [node name="World" type="Node2D" unique_id=870883978]
 
-[node name="Tutorial" parent="." unique_id=1355189622 instance=ExtResource("3_13whx")]
+[node name="TutorialDJ" parent="." unique_id=1355189622 instance=ExtResource("3_13whx")]
 
 [node name="Level0" parent="." unique_id=784658993 instance=ExtResource("1_ljhjx")]
 position = Vector2(-992, -682)

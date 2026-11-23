@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://hci46fbkh2mo" path="res://Assets/Scenes/Obstacles/spike.tscn" id="11_l7ey2"]
 [ext_resource type="PackedScene" uid="uid://cyjrr6lrailc1" path="res://Assets/Scenes/Obstacles/mushroom.tscn" id="12_b0iu6"]
 [ext_resource type="PackedScene" uid="uid://smkqub71176o" path="res://Assets/Scenes/Powerups/low_gravity_pickup.tscn" id="13_wcfsv"]
+[ext_resource type="PackedScene" uid="uid://p3ih6dufe4qr" path="res://Assets/Scenes/Misc/SaveStation.tscn" id="13_yih6y"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_s0e6e"]
 
@@ -261,7 +262,14 @@ tile_set = SubResource("TileSet_yhedt")
 
 [node name="LowGravityPickup" parent="." unique_id=562978495 instance=ExtResource("13_wcfsv")]
 position = Vector2(1281, 381)
+collision_layer = 4
+collision_mask = 4
+
+[node name="SaveStation" parent="." unique_id=1323137895 instance=ExtResource("13_yih6y")]
+position = Vector2(-1033.9999, 26.999998)
+scale = Vector2(0.4, 0.4)
+checkpoint_id = "140"
 
 [connection signal="body_entered" from="tile1_main/Spikes/spike" to="tile1_main/Spikes/spike" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@32892" to="tile1_main/Spikes/@Area2D@32892" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@32893" to="tile1_main/Spikes/@Area2D@32893" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@90295" to="tile1_main/Spikes/@Area2D@90295" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@90296" to="tile1_main/Spikes/@Area2D@90296" method="_on_body_entered"]

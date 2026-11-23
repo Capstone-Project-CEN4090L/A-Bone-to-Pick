@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b0ytnld5ah6s4" path="res://Assets/Sprites/tiles/sdscd.png" id="11_kctlq"]
 [ext_resource type="PackedScene" uid="uid://hci46fbkh2mo" path="res://Assets/Scenes/Obstacles/spike.tscn" id="11_tur8w"]
 [ext_resource type="Texture2D" uid="uid://c5flgqrn1wwc6" path="res://Assets/Sprites/tiles/maskssss2.png" id="12_a63fq"]
+[ext_resource type="PackedScene" uid="uid://p3ih6dufe4qr" path="res://Assets/Scenes/Misc/SaveStation.tscn" id="12_ewu4q"]
 [ext_resource type="PackedScene" uid="uid://cyjrr6lrailc1" path="res://Assets/Scenes/Obstacles/mushroom.tscn" id="12_pg1wi"]
 [ext_resource type="Texture2D" uid="uid://bdoochyino6d0" path="res://Assets/Sprites/tiles/vignettev2.png" id="13_fvjxw"]
 
@@ -260,9 +261,13 @@ tile_set = SubResource("TileSet_bt8tb")
 tile_map_data = PackedByteArray("AAAXAF3/AAAAAAAAAQCm/zz/AAAAAAAAAQAMANz+AAAAAAAAAQA=")
 tile_set = SubResource("TileSet_8w5ac")
 
+[node name="SaveStation" parent="." unique_id=1323137895 instance=ExtResource("12_ewu4q")]
+position = Vector2(-141.78198, -1745.593)
+checkpoint_id = "144"
+
 [connection signal="body_entered" from="tile1_main/Spikes/spike" to="tile1_main/Spikes/spike" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@181781" to="tile1_main/Spikes/@Area2D@181781" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@181782" to="tile1_main/Spikes/@Area2D@181782" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@110622" to="tile1_main/Spikes/@Area2D@110622" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@110623" to="tile1_main/Spikes/@Area2D@110623" method="_on_body_entered"]
 [connection signal="body_entered" from="tile1_main/Mushrooms/mushroom" to="tile1_main/Mushrooms/mushroom" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/Mushrooms/@Area2D@181783" to="tile1_main/Mushrooms/@Area2D@181783" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/Mushrooms/@Area2D@181784" to="tile1_main/Mushrooms/@Area2D@181784" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Mushrooms/@Area2D@110624" to="tile1_main/Mushrooms/@Area2D@110624" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Mushrooms/@Area2D@110625" to="tile1_main/Mushrooms/@Area2D@110625" method="_on_body_entered"]

@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://c3wao2qsxhcv4" path="res://Assets/Sprites/tiles/tileset3.png" id="9_0kcn6"]
 [ext_resource type="Texture2D" uid="uid://dm3d8r0u3gh2b" path="res://Assets/Sprites/tiles/tileset_wip.png" id="10_gue6n"]
 [ext_resource type="PackedScene" uid="uid://hci46fbkh2mo" path="res://Assets/Scenes/Obstacles/spike.tscn" id="11_e8jjb"]
+[ext_resource type="PackedScene" uid="uid://p3ih6dufe4qr" path="res://Assets/Scenes/Misc/SaveStation.tscn" id="12_afm3j"]
 [ext_resource type="PackedScene" uid="uid://cyjrr6lrailc1" path="res://Assets/Scenes/Obstacles/mushroom.tscn" id="12_kod7m"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_s0e6e"]
@@ -242,7 +243,7 @@ texture = ExtResource("8_3tnt1")
 
 [node name="tile1_main" type="TileMapLayer" parent="." unique_id=749777200]
 scale = Vector2(0.4, 0.4)
-tile_map_data = PackedByteArray("AAATAAEAAAAHAAEAAAASAAEAAAAHAAEAAAAVAAEAAAAHAAEAAAAUAAEAAAAHAAEAAAASAAIAAAAIAAEAAAASAAMAAAAIAAEAAAATAAMAAAAIAAEAAAAUAAMAAAAIAAEAAAAUAAIAAAAIAAEAAAATAAIAAAAIAAEAAAAVAAIAAAAIAAEAAAAVAAMAAAAIAAEAAAARAAEAAAAKAAcAAAAPAAEAAAAKAAcAAAAQAAEAAAAKAAcAAAAOAAEAAAAKAAcAAAAFAAEAAAAHAAEAAAAGAAEAAAAHAAEAAAAFAAIAAAAIAAEAAAAGAAIAAAAIAAEAAAABAAAAAAAAAAYAAAAEAAAAAAAAAAYAAAADAAcAAAAFAAMAAAACAAcAAAAFAAMAAAABAAcAAAAFAAMAAAAAAAcAAAAFAAMAAAD//wcAAAAFAAMAAAD+/wcAAAAFAAMAAAD9/wcAAAAFAAMAAAD8/wcAAAAFAAMAAAD7/wcAAAAFAAMAAAD7/wYAAAAFAAMAAAD6/wYAAAAFAAMAAAD5/wUAAAAFAAMAAAD6/wUAAAAFAAMAAAD5/wQAAAAFAAMAAAD5/wMAAAAFAAMAAAD4/wMAAAAFAAMAAAD4/wIAAAAFAAMAAAD4/wEAAAAFAAMAAAD4/wAAAAAFAAMAAAD3/wAAAAAFAAMAAAD9/wIAAAAFAAMAAAD+/wIAAAAFAAMAAADY////AAAFAAMAAADX////AAAFAAMAAADY/wAAAAAFAAMAAADY//v/AAAFAAMAAADZ//v/AAAFAAMAAADa//v/AAAFAAMAAADa//r/AAAFAAMAAADb//r/AAAFAAMAAADc//r/AAAFAAMAAADd//r/AAAFAAMAAADe//r/AAAFAAMAAADf//r/AAAFAAMAAADg//r/AAAFAAMAAADh//r/AAAFAAMAAADh//v/AAAFAAMAAADi//v/AAAFAAMAAADj//v/AAAFAAMAAADk//v/AAAFAAMAAADT//7/AAAFAAMAAADS//3/AAAFAAMAAADS//7/AAAFAAMAAADR//3/AAAFAAMAAADR//z/AAAFAAMAAAA=")
+tile_map_data = PackedByteArray("AAATAAEAAAAHAAEAAAASAAEAAAAHAAEAAAAVAAEAAAAHAAEAAAAUAAEAAAAHAAEAAAASAAIAAAAIAAEAAAASAAMAAAAIAAEAAAATAAMAAAAIAAEAAAAUAAMAAAAIAAEAAAAUAAIAAAAIAAEAAAATAAIAAAAIAAEAAAAVAAIAAAAIAAEAAAAVAAMAAAAIAAEAAAARAAEAAAAKAAcAAAAPAAEAAAAKAAcAAAAQAAEAAAAKAAcAAAAOAAEAAAAKAAcAAAAFAAEAAAAHAAEAAAAGAAEAAAAHAAEAAAAFAAIAAAAIAAEAAAAGAAIAAAAIAAEAAAABAAAAAAAAAAYAAAAEAAAAAAAAAAYAAAADAAcAAAAFAAMAAAACAAcAAAAFAAMAAAABAAcAAAAFAAMAAAAAAAcAAAAFAAMAAAD//wcAAAAFAAMAAAD+/wcAAAAFAAMAAAD9/wcAAAAFAAMAAAD8/wcAAAAFAAMAAAD7/wcAAAAFAAMAAAD7/wYAAAAFAAMAAAD6/wYAAAAFAAMAAAD5/wUAAAAFAAMAAAD6/wUAAAAFAAMAAAD5/wQAAAAFAAMAAAD5/wMAAAAFAAMAAAD4/wMAAAAFAAMAAAD4/wIAAAAFAAMAAAD4/wEAAAAFAAMAAAD4/wAAAAAFAAMAAAD3/wAAAAAFAAMAAAD9/wIAAAAFAAMAAAD+/wIAAAAFAAMAAADY////AAAFAAMAAADX////AAAFAAMAAADY/wAAAAAFAAMAAADY//v/AAAFAAMAAADZ//v/AAAFAAMAAADa//v/AAAFAAMAAADa//r/AAAFAAMAAADb//r/AAAFAAMAAADc//r/AAAFAAMAAADd//r/AAAFAAMAAADe//r/AAAFAAMAAADf//r/AAAFAAMAAADg//r/AAAFAAMAAADh//r/AAAFAAMAAADh//v/AAAFAAMAAADi//v/AAAFAAMAAADj//v/AAAFAAMAAADk//v/AAAFAAMAAADT//7/AAAFAAMAAADS//3/AAAFAAMAAADS//7/AAAFAAMAAADR//3/AAAFAAMAAADR//z/AAAFAAMAAAAJAPr/AAAHAAIAAAAKAPr/AAAHAAIAAAAKAPn/AAAHAAIAAAALAPn/AAAHAAIAAAALAPj/AAAHAAIAAAALAPf/AAAHAAIAAAAMAPf/AAAHAAIAAAAMAPb/AAAHAAIAAAANAPb/AAAHAAIAAAANAPX/AAAHAAIAAAAHAPT/AAAHAAIAAAA=")
 tile_set = SubResource("TileSet_rmg0m")
 
 [node name="tile2_background" type="TileMapLayer" parent="tile1_main" unique_id=403747401]
@@ -260,3 +261,20 @@ tile_set = SubResource("TileSet_p3skf")
 [node name="Mushrooms" type="TileMapLayer" parent="tile1_main" unique_id=52682380]
 tile_map_data = PackedByteArray("AAA0/wAAAAAAAAAAAQB3////AAAAAAAAAQA=")
 tile_set = SubResource("TileSet_yhedt")
+
+[node name="SaveStation" parent="." unique_id=1323137895 instance=ExtResource("12_afm3j")]
+position = Vector2(1254, -17)
+checkpoint_id = "142"
+
+[connection signal="body_entered" from="tile1_main/Spikes/spike" to="tile1_main/Spikes/spike" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@105752" to="tile1_main/Spikes/@Area2D@105752" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@105753" to="tile1_main/Spikes/@Area2D@105753" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@105754" to="tile1_main/Spikes/@Area2D@105754" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@105755" to="tile1_main/Spikes/@Area2D@105755" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@105756" to="tile1_main/Spikes/@Area2D@105756" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@105757" to="tile1_main/Spikes/@Area2D@105757" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@105758" to="tile1_main/Spikes/@Area2D@105758" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@105759" to="tile1_main/Spikes/@Area2D@105759" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@105760" to="tile1_main/Spikes/@Area2D@105760" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Mushrooms/mushroom" to="tile1_main/Mushrooms/mushroom" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Mushrooms/@Area2D@105761" to="tile1_main/Mushrooms/@Area2D@105761" method="_on_body_entered"]
