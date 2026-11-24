@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://p3ih6dufe4qr"]
 
 [ext_resource type="Script" uid="uid://cv0fyk8n33t16" path="res://Assets/Scenes/Misc/save_station.gd" id="1_vhljj"]
-[ext_resource type="Texture2D" uid="uid://dgh4ns25ve8ha" path="res://icon.svg" id="2_7t7wn"]
+[ext_resource type="Texture2D" uid="uid://biuhdxkr5p3ud" path="res://Assets/Sprites/station/savestationv2.png" id="2_7t7wn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rb3q5"]
 size = Vector2(126.75, 128.25)
@@ -15,12 +15,15 @@ shape = SubResource("RectangleShape2D_rb3q5")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1460691891]
 z_index = -1
-rotation = 3.1415927
+position = Vector2(0, -23.000013)
+scale = Vector2(0.87082535, 0.87082535)
 texture = ExtResource("2_7t7wn")
 
 [node name="Prompt" type="Label" parent="." unique_id=280427810]
-offset_left = -53.0
-offset_top = 83.0
-offset_right = 57.0
-offset_bottom = 106.0
+offset_left = -100.99999
+offset_top = -62.0
+offset_right = 26.000008
+offset_bottom = -39.0
+scale = Vector2(1.5660019, 1.5660019)
 text = "Press e to rest"
+uppercase = true

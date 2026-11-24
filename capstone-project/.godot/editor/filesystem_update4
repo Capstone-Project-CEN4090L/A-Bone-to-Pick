@@ -1,11 +1,3 @@
-res://Assets/Scenes/Misc/Teleport.tscn
-res://Assets/Scenes/Misc/teleport.gd
-res://Assets/Scenes/Misc/teleport_spawn.gd
-res://Assets/Scenes/Misc/TeleportSpawn.tscn
+res://Assets/Scenes/Misc/SaveStation.tscn
+res://Assets/Scenes/UI/UI_root.tscn
 res://Assets/Scenes/Areas/boss_test_arena.tscn
-res://Assets/Scenes/Areas/boss_test_arena.gd
-res://TeleportManager.gd
-res://Assets/Scenes/Areas/world.gd
-res://Assets/Scenes/Areas/double_jump_area.tscn
-res://Assets/Scenes/Areas/Level0.tscn
-res://Assets/Scenes/Areas/World.tscn
