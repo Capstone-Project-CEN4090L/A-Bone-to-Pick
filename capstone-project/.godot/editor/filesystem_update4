@@ -1,3 +1,15 @@
-res://Assets/Scenes/Misc/SaveStation.tscn
-res://Assets/Scenes/UI/UI_root.tscn
+res://Assets/Scenes/UI/main_menu.tscn
+res://Assets/Scripts/UI/main_menu.gd
 res://Assets/Scenes/Areas/boss_test_arena.tscn
+res://Assets/Scenes/Areas/john_test_ground.tscn
+res://Assets/Scenes/Areas/Level4_3.tscn
+res://Assets/Scenes/Enemies/flying_enemy.tscn
+res://Assets/Scenes/Enemies/bulky.tscn
+res://Assets/Scenes/Enemies/pouncer.tscn
+res://Assets/Scenes/Areas/double_jump_area.tscn
+res://Assets/Scenes/Areas/Level3_1.tscn
+res://Assets/Scenes/Powerups/low_gravity_pickup.tscn
+res://Assets/Scenes/Areas/Level3_2.tscn
+res://Assets/Scripts/Misc/player_controller.gd
+res://Assets/Scenes/Areas/World.tscn
+res://Assets/Scripts/Powerups/low_gravity_pickup.gd

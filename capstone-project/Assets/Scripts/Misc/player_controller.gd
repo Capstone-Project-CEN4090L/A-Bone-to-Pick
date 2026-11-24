@@ -28,7 +28,7 @@ var is_attacking = false
 @export var low_gravity_multiplier: float = 0.3
 
 # ARMANI'S FIX #1: make fall limit and respawn location adjustable per level instead of hard-coded
-@export var fall_limit_y: float = 512.0
+@export var fall_limit_y: float = 9000.0
 @export var fall_respawn_position: Vector2 = Vector2(-62, -78)
 
 var gravity_multiplier: float = 1.5
@@ -506,16 +506,18 @@ func _on_coyote_time_timeout():
 	can_airattack = true
 
 func activate_low_gravity(duration: float):
-	if low_gravity_active:
-		return
-	
 	low_gravity_active = true
 	gravity_multiplier = low_gravity_multiplier
 	
 	print("Low gravity activated")
 	
-	await get_tree().create_timer(duration).timeout
+	skele.modulate = Color(0.0, 0.532, 0.98, 1.0)
+	await get_tree().create_timer(duration - 2).timeout
 	
+	var tween = create_tween()
+	tween.tween_property(skele, "modulate", Color(1, 1, 1), 2.0)
+	
+	await get_tree().create_timer(2).timeout
 	gravity_multiplier = normal_gravity_multiplier
 	low_gravity_active = false
 	

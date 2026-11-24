@@ -1,6 +1,6 @@
 extends Control
 
-const default_level := "res://Assets/Scenes/Areas/first_zone.tscn"
+const default_level := "res://Assets/Scenes/Areas/World.tscn"
 
 @onready var new_game_button: Button = get_node("Center/PanelContainer/Margin/VBox/NewGameButton")
 @onready var resume_game_button: Button = get_node("Center/PanelContainer/Margin/VBox/ResumeGameButton")
