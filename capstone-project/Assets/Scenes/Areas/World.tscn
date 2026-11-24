@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://b8211m7hckc8q" path="res://Assets/Scenes/Areas/Level4_2.tscn" id="11_kkfi7"]
 [ext_resource type="PackedScene" uid="uid://dy8vtf56d1pba" path="res://Assets/Scenes/Areas/Level4_3.tscn" id="12_1klm5"]
 [ext_resource type="PackedScene" uid="uid://ds8loi7in2ub2" path="res://Assets/Scenes/Areas/LevelA_1.tscn" id="13_d14s2"]
+[ext_resource type="PackedScene" uid="uid://qiab6c5cvjws" path="res://Assets/Scenes/Misc/Teleport.tscn" id="14_2vqwk"]
+[ext_resource type="PackedScene" uid="uid://ncqodbjla1sx" path="res://Assets/Scenes/Misc/TeleportSpawn.tscn" id="15_uvc3f"]
 
 [node name="World" type="Node2D" unique_id=870883978]
 
@@ -53,3 +55,12 @@ position = Vector2(3256, -5635)
 
 [node name="LevelA_1" parent="." unique_id=1478182947 instance=ExtResource("13_d14s2")]
 position = Vector2(-1071, -3267)
+
+[node name="Dash_Teleporter" parent="." unique_id=349261333 instance=ExtResource("14_2vqwk")]
+position = Vector2(615, -6450)
+scale = Vector2(3, 3)
+destination_spawn_id = "dash"
+
+[node name="Marker2D" parent="." unique_id=1914136304 instance=ExtResource("15_uvc3f")]
+position = Vector2(-348, -945)
+spawn_id = "dash"
