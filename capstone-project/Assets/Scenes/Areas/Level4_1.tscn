@@ -262,15 +262,15 @@ tile_set = SubResource("TileSet_p3skf")
 tile_set = SubResource("TileSet_yhedt")
 
 [node name="SaveStation" parent="." unique_id=1323137895 instance=ExtResource("12_20ubt")]
-position = Vector2(-1053, -15)
+position = Vector2(-1053, -50)
 checkpoint_id = "141"
 
 [connection signal="body_entered" from="tile1_main/Spikes/spike" to="tile1_main/Spikes/spike" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@69818" to="tile1_main/Spikes/@Area2D@69818" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@69819" to="tile1_main/Spikes/@Area2D@69819" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@69820" to="tile1_main/Spikes/@Area2D@69820" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@69821" to="tile1_main/Spikes/@Area2D@69821" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@69822" to="tile1_main/Spikes/@Area2D@69822" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@69823" to="tile1_main/Spikes/@Area2D@69823" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@69824" to="tile1_main/Spikes/@Area2D@69824" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@69825" to="tile1_main/Spikes/@Area2D@69825" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@36357" to="tile1_main/Spikes/@Area2D@36357" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@36358" to="tile1_main/Spikes/@Area2D@36358" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@36359" to="tile1_main/Spikes/@Area2D@36359" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@36360" to="tile1_main/Spikes/@Area2D@36360" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@36361" to="tile1_main/Spikes/@Area2D@36361" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@36362" to="tile1_main/Spikes/@Area2D@36362" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@36363" to="tile1_main/Spikes/@Area2D@36363" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@36364" to="tile1_main/Spikes/@Area2D@36364" method="_on_body_entered"]
