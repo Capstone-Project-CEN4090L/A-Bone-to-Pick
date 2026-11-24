@@ -34,6 +34,9 @@ func _physics_process(delta):
 	if player == null:
 		return
 	
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+	
 	var horizontal_distance = abs(player.global_position.x - global_position.x)
 	var vertical_distance = abs(player.global_position.y - global_position.y)
 	
@@ -46,7 +49,7 @@ func _physics_process(delta):
 		velocity.x = 0
 		
 		if !attacking:
-			sprite.play("idle")
+			sprite.play("goblin")
 		
 		move_and_slide()
 		return
@@ -71,26 +74,26 @@ func _physics_process(delta):
 				velocity.x = direction * move_speed
 			else:
 				velocity.x = 0
-				sprite.play("idle")
+				sprite.play("goblin")
 				move_and_slide()
 				return
 			
 			if direction < 0:
-				sprite.flip_h = false
+				sprite.flip_h = true
 				attack_area.position.x = -abs(attack_area.position.x)
 			else:
-				sprite.flip_h = true
+				sprite.flip_h = false
 				attack_area.position.x = abs(attack_area.position.x)
 			
-			sprite.play("walk")
+			sprite.play("goblin_walk")
 		else:
 			velocity.x = 0
-			sprite.play("idle")
+			sprite.play("goblin")
 	
 	# Enemy stands still if player is too far away
 	elif !attacking:
 		velocity.x = 0
-		sprite.play("idle")
+		sprite.play("goblin")
 	
 	move_and_slide()
 
@@ -100,10 +103,10 @@ func attack():
 	can_attack = false
 	velocity.x = 0
 	
-	sprite.play("attack")
+	sprite.play("goblin_walk")
 	
 	# Delay before the attack actually hits
-	await get_tree().create_timer(0.2).timeout
+	await get_tree().create_timer(0.1).timeout
 	
 	for body in attack_area.get_overlapping_bodies():
 		print("Attack checking: ", body.name)
@@ -111,9 +114,9 @@ func attack():
 		if body.is_in_group("player") and body.has_method("take_damage"):
 			print("Damaging player")
 			if sprite.flip_h:
-				body.take_damage(attack_damage, 1)
-			else:
 				body.take_damage(attack_damage, -1)
+			else:
+				body.take_damage(attack_damage, 1)
 	
 	await get_tree().create_timer(attack_cooldown).timeout
 	

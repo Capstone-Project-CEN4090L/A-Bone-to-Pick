@@ -10,9 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://brdqgta56rt5o" path="res://Assets/Sprites/Skeleton/skeleton-6.png" id="8_83fim"]
 [ext_resource type="Texture2D" uid="uid://g8ljiesgyhb2" path="res://Assets/Sprites/Skeleton/skeleton-7.png" id="9_vqt7n"]
 [ext_resource type="Texture2D" uid="uid://54twbii8qj1r" path="res://Assets/Sprites/Skeleton/skeleton-8.png" id="10_lxyp0"]
-[ext_resource type="Texture2D" uid="uid://bqa445kqevuw1" path="res://Assets/Sprites/sans_ow/overworld_ded.png" id="11_bu4w3"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dtg11"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pb6g7"]
+size = Vector2(42.666668, 20.333334)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qno8g"]
 atlas = ExtResource("2_t31jo")
@@ -70,30 +70,10 @@ animations = [{
 "loop": 1,
 "name": &"default",
 "speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("11_bu4w3")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_bu4w3")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_bu4w3")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_bu4w3")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_bu4w3")
-}],
-"loop": 0,
-"name": &"dies",
-"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jtkh7"]
-size = Vector2(62.25, 42.25)
+size = Vector2(25.666668, 13.333333)
 
 [node name="FlyingEnemy" type="CharacterBody2D" unique_id=839433531]
 scale = Vector2(3, 3)
@@ -102,7 +82,8 @@ collision_mask = 0
 script = ExtResource("1_1jr7v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=274687086]
-shape = SubResource("CapsuleShape2D_dtg11")
+position = Vector2(-0.66666603, 1.166667)
+shape = SubResource("RectangleShape2D_pb6g7")
 
 [node name="Node2D" type="Area2D" parent="." unique_id=1886779630]
 
@@ -121,6 +102,7 @@ collision_layer = 0
 collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=1605054320]
+position = Vector2(-1.1666665, 1.3333334)
 shape = SubResource("RectangleShape2D_jtkh7")
 
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
