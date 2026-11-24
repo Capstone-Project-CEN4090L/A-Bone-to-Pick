@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://dqsxdy8rgh5wy"]
 
 [ext_resource type="PackedScene" uid="uid://cwoa5j3a4uuk0" path="res://Assets/Scenes/Areas/Level0.tscn" id="1_ljhjx"]
-[ext_resource type="Script" uid="uid://bvfwig16c3io3" path="res://Assets/Scenes/Areas/world.gd" id="1_naeme"]
 [ext_resource type="PackedScene" uid="uid://cmpxoojgikhyl" path="res://Assets/Scenes/Areas/double_jump_area.tscn" id="3_13whx"]
 [ext_resource type="PackedScene" uid="uid://cqcaaos1ucypq" path="res://Assets/Scenes/Areas/Level1_1.tscn" id="3_ljhjx"]
 [ext_resource type="PackedScene" uid="uid://cyau1nj31qbyn" path="res://Assets/Scenes/Areas/Level1_2.tscn" id="4_13whx"]
@@ -16,7 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://ds8loi7in2ub2" path="res://Assets/Scenes/Areas/LevelA_1.tscn" id="13_d14s2"]
 
 [node name="World" type="Node2D" unique_id=870883978]
-script = ExtResource("1_naeme")
 
 [node name="TutorialDJ" parent="." unique_id=1355189622 instance=ExtResource("3_13whx")]
 
@@ -39,19 +37,19 @@ position = Vector2(-11921, -5454)
 position = Vector2(-6750, -5441)
 
 [node name="Level3_1" parent="." unique_id=1637690709 instance=ExtResource("8_kkdlf")]
-position = Vector2(1514, -1422)
+position = Vector2(1488, -1426)
 
 [node name="Level3_2" parent="." unique_id=1110464671 instance=ExtResource("9_4l5sb")]
-position = Vector2(2960, -2467)
+position = Vector2(2914, -2480)
 
 [node name="Level4_1" parent="." unique_id=791759880 instance=ExtResource("10_4l5sb")]
-position = Vector2(4186, -3769)
+position = Vector2(4216, -3782)
 
 [node name="Level4_2" parent="." unique_id=1779373469 instance=ExtResource("11_kkfi7")]
-position = Vector2(3380, -4643)
+position = Vector2(3348, -4650)
 
 [node name="Level4_3" parent="." unique_id=1482140970 instance=ExtResource("12_1klm5")]
-position = Vector2(3191, -5631)
+position = Vector2(3256, -5635)
 
 [node name="LevelA_1" parent="." unique_id=1478182947 instance=ExtResource("13_d14s2")]
 position = Vector2(-1071, -3267)

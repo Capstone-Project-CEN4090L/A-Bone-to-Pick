@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://p3ih6dufe4qr" path="res://Assets/Scenes/Misc/SaveStation.tscn" id="12_ewu4q"]
 [ext_resource type="PackedScene" uid="uid://cyjrr6lrailc1" path="res://Assets/Scenes/Obstacles/mushroom.tscn" id="12_pg1wi"]
 [ext_resource type="Texture2D" uid="uid://bdoochyino6d0" path="res://Assets/Sprites/tiles/vignettev2.png" id="13_fvjxw"]
-[ext_resource type="PackedScene" uid="uid://ncqodbjla1sx" path="res://Assets/Scenes/Misc/TeleportSpawn.tscn" id="13_vjefj"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hdpfn"]
 
@@ -263,15 +262,12 @@ tile_map_data = PackedByteArray("AAAXAF3/AAAAAAAAAQCm/zz/AAAAAAAAAQAMANz+AAAAAAA
 tile_set = SubResource("TileSet_8w5ac")
 
 [node name="SaveStation" parent="." unique_id=1323137895 instance=ExtResource("12_ewu4q")]
-position = Vector2(-141.78198, -1745.593)
+position = Vector2(-141.78198, -1786.593)
 checkpoint_id = "144"
 
-[node name="Marker2D" parent="." unique_id=1914136304 instance=ExtResource("13_vjefj")]
-position = Vector2(-285.87878, -282.91815)
-
 [connection signal="body_entered" from="tile1_main/Spikes/spike" to="tile1_main/Spikes/spike" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@62212" to="tile1_main/Spikes/@Area2D@62212" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@62213" to="tile1_main/Spikes/@Area2D@62213" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@50395" to="tile1_main/Spikes/@Area2D@50395" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Spikes/@Area2D@50396" to="tile1_main/Spikes/@Area2D@50396" method="_on_body_entered"]
 [connection signal="body_entered" from="tile1_main/Mushrooms/mushroom" to="tile1_main/Mushrooms/mushroom" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/Mushrooms/@Area2D@62214" to="tile1_main/Mushrooms/@Area2D@62214" method="_on_body_entered"]
-[connection signal="body_entered" from="tile1_main/Mushrooms/@Area2D@62215" to="tile1_main/Mushrooms/@Area2D@62215" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Mushrooms/@Area2D@50397" to="tile1_main/Mushrooms/@Area2D@50397" method="_on_body_entered"]
+[connection signal="body_entered" from="tile1_main/Mushrooms/@Area2D@50398" to="tile1_main/Mushrooms/@Area2D@50398" method="_on_body_entered"]
