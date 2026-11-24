@@ -29,4 +29,17 @@ func _on_resume_game_button_pressed() -> void:
 	var scene_path: String = SaveManager.game_state["last_scene"]
 	if scene_path == "":
 		scene_path = default_level
-	SceneManager.go_to(scene_path, SaveManager.game_state["last_checkpoint"])
+	SceneManager.go_to(scene_path)
+
+
+
+
+
+#func _ready():
+	#UILayer.set_gameplay_ui(false)
+	#$Center/PanelContainer/Margin/VBox/NewGameButton.pressed.connect(NewGame)
+	#$Center/PanelContainer/Margin/VBox/NewGameButton.grab_focus()
+#
+#func NewGame():
+	#UILayer.set_gameplay_ui(true)
+	#SceneManager.go_to("res://Assets/Scenes/Areas/first_zone.tscn")

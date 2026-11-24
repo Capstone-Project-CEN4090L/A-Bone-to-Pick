@@ -20,7 +20,7 @@ var health: int
 @export var recover_time: float = 1.0
 @export var pounce_jump_velocity: float = 350.0
 @export var max_pounce_speed: float = 400.0
-@export var attack_damage: int = 2
+@export var attack_damage: int = 20
 
 @export var knockback_strength: float = 170.0
 @export var knockback_time: float = 0.2
@@ -133,10 +133,7 @@ func _on_attack_area_body_entered(body):
 	if state != State.POUNCE or has_hit:
 		return
 	if body.is_in_group("player") and body.has_method("take_damage"):
-		if sprite.flip_h:
-			body.take_damage(attack_damage, 1)
-		else:
-			body.take_damage(attack_damage, -1)
+		body.take_damage(attack_damage)
 		has_hit = true # one hit per pounce
 		
 func face_direction(direction: float):
