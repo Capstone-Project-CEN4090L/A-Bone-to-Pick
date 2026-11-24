@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://b85enxy3lhm5l"]
+
+[ext_resource type="Script" uid="uid://ckymsi5pmqy6o" path="res://Assets/Scenes/Powerups/invincibility_pickup.gd" id="1_kkfkq"]
+[ext_resource type="Texture2D" uid="uid://du01nlsdhxu6o" path="res://Assets/Sprites/powerups/invincibility_powerup.png" id="1_slww4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_te6hp"]
+size = Vector2(80, 74)
+
+[node name="Invincibility_Pickup" type="Area2D" unique_id=164015]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_kkfkq")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=668310059]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_slww4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1891576473]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_te6hp")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

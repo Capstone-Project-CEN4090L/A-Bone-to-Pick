@@ -26,6 +26,7 @@ SceneManager="*uid://b8b6lyu66gytg"
 UILayer="*uid://briglalxdwfyp"
 Globals="*uid://dggp0gei55fm3"
 SaveManager="*uid://duxcfpkb6bu5s"
+TeleportManager="*uid://4644hurwvndw"
 
 [display]
 

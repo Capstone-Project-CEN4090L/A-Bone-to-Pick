@@ -15,7 +15,6 @@ var invincible = false
 var being_knocked_back = false
 var being_SUPER_knocked_back = false
 var knockback_direction = 0
-var invincibility_timer = 1.0
 var flash_timer = 0.05
 const SPEED = 350.0
 const JUMP_VELOCITY = -490.0
@@ -440,6 +439,7 @@ func die():
 	
 func flash() -> void:
 	var timer = 0.0
+	var invincibility_timer = SaveManager.get_player_value("invincibility")
 	while timer < invincibility_timer:
 		skele.visible = !skele.visible
 		await get_tree().create_timer(flash_timer).timeout

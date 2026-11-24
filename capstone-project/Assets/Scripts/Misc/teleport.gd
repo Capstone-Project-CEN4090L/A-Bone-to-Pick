@@ -6,7 +6,6 @@ enum TeleportType {
 }
 
 @export var teleport_type: TeleportType = TeleportType.SAME_WORLD
-
 @export var destination_spawn_id: String = ""
 
 @export_file("*.tscn") var destination_scene: String = ""
