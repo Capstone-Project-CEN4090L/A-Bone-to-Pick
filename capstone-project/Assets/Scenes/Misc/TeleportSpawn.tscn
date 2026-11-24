@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://ncqodbjla1sx"]
+
+[ext_resource type="Script" uid="uid://c4ksn20vm466" path="res://Assets/Scenes/Misc/teleport_spawn.gd" id="1_mjjcl"]
+
+[node name="Marker2D" type="Marker2D" unique_id=1914136304]
+script = ExtResource("1_mjjcl")
+spawn_id = "try"

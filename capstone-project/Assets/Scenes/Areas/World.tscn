@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://dqsxdy8rgh5wy"]
+
+[ext_resource type="PackedScene" uid="uid://cwoa5j3a4uuk0" path="res://Assets/Scenes/Areas/Level0.tscn" id="1_ljhjx"]
+[ext_resource type="Script" uid="uid://bvfwig16c3io3" path="res://Assets/Scenes/Areas/world.gd" id="1_naeme"]
+[ext_resource type="PackedScene" uid="uid://cmpxoojgikhyl" path="res://Assets/Scenes/Areas/double_jump_area.tscn" id="3_13whx"]
+[ext_resource type="PackedScene" uid="uid://cqcaaos1ucypq" path="res://Assets/Scenes/Areas/Level1_1.tscn" id="3_ljhjx"]
+[ext_resource type="PackedScene" uid="uid://cyau1nj31qbyn" path="res://Assets/Scenes/Areas/Level1_2.tscn" id="4_13whx"]
+[ext_resource type="PackedScene" uid="uid://bq8ojq0l5sfh8" path="res://Assets/Scenes/Areas/Level2_1.tscn" id="5_slcgd"]
+[ext_resource type="PackedScene" uid="uid://3jr2ksjl7bqk" path="res://Assets/Scenes/Areas/Level2_2.tscn" id="6_slcgd"]
+[ext_resource type="PackedScene" uid="uid://djt6lm6s4j8pa" path="res://Assets/Scenes/Areas/Level2_bonus.tscn" id="7_qg88n"]
+[ext_resource type="PackedScene" uid="uid://demiah6m100xg" path="res://Assets/Scenes/Areas/Level3_1.tscn" id="8_kkdlf"]
+[ext_resource type="PackedScene" uid="uid://8efe1we84635" path="res://Assets/Scenes/Areas/Level3_2.tscn" id="9_4l5sb"]
+[ext_resource type="PackedScene" uid="uid://dbhbjkh5mo22t" path="res://Assets/Scenes/Areas/Level4_1.tscn" id="10_4l5sb"]
+[ext_resource type="PackedScene" uid="uid://b8211m7hckc8q" path="res://Assets/Scenes/Areas/Level4_2.tscn" id="11_kkfi7"]
+[ext_resource type="PackedScene" uid="uid://dy8vtf56d1pba" path="res://Assets/Scenes/Areas/Level4_3.tscn" id="12_1klm5"]
+[ext_resource type="PackedScene" uid="uid://ds8loi7in2ub2" path="res://Assets/Scenes/Areas/LevelA_1.tscn" id="13_d14s2"]
+
+[node name="World" type="Node2D" unique_id=870883978]
+script = ExtResource("1_naeme")
+
+[node name="TutorialDJ" parent="." unique_id=1355189622 instance=ExtResource("3_13whx")]
+
+[node name="Level0" parent="." unique_id=784658993 instance=ExtResource("1_ljhjx")]
+position = Vector2(-992, -682)
+
+[node name="Level1_1" parent="." unique_id=1745527148 instance=ExtResource("3_ljhjx")]
+position = Vector2(-2733, -1455)
+
+[node name="Level1_2" parent="." unique_id=1014902692 instance=ExtResource("4_13whx")]
+position = Vector2(-4346, -2784)
+
+[node name="Level2_1" parent="." unique_id=1688509363 instance=ExtResource("5_slcgd")]
+position = Vector2(-9413, -2783)
+
+[node name="Level2_2" parent="." unique_id=955238897 instance=ExtResource("6_slcgd")]
+position = Vector2(-11921, -5454)
+
+[node name="Level2_bonus" parent="." unique_id=1550907945 instance=ExtResource("7_qg88n")]
+position = Vector2(-6750, -5441)
+
+[node name="Level3_1" parent="." unique_id=1637690709 instance=ExtResource("8_kkdlf")]
+position = Vector2(1514, -1422)
+
+[node name="Level3_2" parent="." unique_id=1110464671 instance=ExtResource("9_4l5sb")]
+position = Vector2(2960, -2467)
+
+[node name="Level4_1" parent="." unique_id=791759880 instance=ExtResource("10_4l5sb")]
+position = Vector2(4186, -3776)
+
+[node name="Level4_2" parent="." unique_id=1779373469 instance=ExtResource("11_kkfi7")]
+position = Vector2(3380, -4643)
+
+[node name="Level4_3" parent="." unique_id=1482140970 instance=ExtResource("12_1klm5")]
+position = Vector2(3191, -5631)
+
+[node name="LevelA_1" parent="." unique_id=1478182947 instance=ExtResource("13_d14s2")]
+position = Vector2(-1071, -3267)
