@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://p3ih6dufe4qr"]
 
-[ext_resource type="Script" uid="uid://cv0fyk8n33t16" path="res://Assets/Scenes/Misc/save_station.gd" id="1_vhljj"]
+[ext_resource type="Script" uid="uid://cv0fyk8n33t16" path="res://Assets/Scripts/Misc/save_station.gd" id="1_vhljj"]
 [ext_resource type="Texture2D" uid="uid://cfrtcdkf4vfm7" path="res://Assets/Sprites/station/savestationv2.png" id="2_7t7wn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rb3q5"]
@@ -8,6 +8,7 @@ size = Vector2(126.75, 128.25)
 
 [sub_resource type="SystemFont" id="SystemFont_idqg5"]
 font_names = PackedStringArray("Cascadia Code")
+subpixel_positioning = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_7t7wn"]
 font = SubResource("SystemFont_idqg5")
