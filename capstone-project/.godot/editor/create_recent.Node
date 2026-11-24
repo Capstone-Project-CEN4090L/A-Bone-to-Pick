@@ -1,6 +1,4 @@
 Sprite2D
-Marker2D
-Label
 CollisionShape2D
 Area2D
 Node2D
@@ -12,3 +10,5 @@ Parallax2D
 TextureRect
 ParallaxBackground
 Timer
+RayCast2D
+AnimationTree

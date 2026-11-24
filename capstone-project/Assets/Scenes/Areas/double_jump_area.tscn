@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://dm3d8r0u3gh2b" path="res://Assets/Sprites/tiles/tileset_wip.png" id="3_a0i8x"]
 [ext_resource type="PackedScene" uid="uid://cyjrr6lrailc1" path="res://Assets/Scenes/Obstacles/mushroom.tscn" id="5_jjjww"]
 [ext_resource type="PackedScene" uid="uid://w4la0yn65g0p" path="res://Assets/Scenes/Enemies/pouncer.tscn" id="6_a0i8x"]
-[ext_resource type="PackedScene" uid="uid://qiab6c5cvjws" path="res://Assets/Scenes/Misc/Teleport.tscn" id="7_m1hyg"]
 [ext_resource type="PackedScene" uid="uid://c66s285decul2" path="res://Assets/Scenes/Powerups/double_jump_pickup.tscn" id="8_ql8fm"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lafkt"]
@@ -200,8 +199,3 @@ position = Vector2(-86, 829)
 
 [node name="DoubleJumpPickup" parent="." unique_id=2034132801 instance=ExtResource("8_ql8fm")]
 position = Vector2(1829, 935)
-
-[node name="TP" parent="." unique_id=349261333 instance=ExtResource("7_m1hyg")]
-position = Vector2(-33, 20)
-scale = Vector2(3, 3)
-destination_spawn_id = "try"
