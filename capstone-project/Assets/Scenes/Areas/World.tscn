@@ -54,7 +54,7 @@ position = Vector2(3348, -4650)
 position = Vector2(3256, -5635)
 
 [node name="LevelA_1" parent="." unique_id=1478182947 instance=ExtResource("13_d14s2")]
-position = Vector2(-1071, -3267)
+position = Vector2(-2232, -3286)
 
 [node name="Dash_Teleporter" parent="." unique_id=349261333 instance=ExtResource("14_2vqwk")]
 position = Vector2(615, -6450)

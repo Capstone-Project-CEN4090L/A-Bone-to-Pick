@@ -28,7 +28,7 @@ func get_default_state() -> Dictionary:
 			"health": 6,
 			"max_health": 6,
 			"damage": 10,
-			"invincibility": 1.0,
+			"invincibility": 0.6,
 			"has_double_jump": false,
 			"has_dash": false,
 			"has_air_attack": false,
