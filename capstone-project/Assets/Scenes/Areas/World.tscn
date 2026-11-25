@@ -73,4 +73,4 @@ destination_spawn_id = "boss"
 destination_scene = "uid://cvwe1pcj22xy5"
 
 [node name="Player" parent="." unique_id=1833664872 instance=ExtResource("16_uvc3f")]
-position = Vector2(3463, -3883)
+position = Vector2(134, -18)
