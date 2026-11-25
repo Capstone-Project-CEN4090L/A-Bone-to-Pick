@@ -1,6 +1,5 @@
 [gd_scene format=4 uid="uid://cmpxoojgikhyl"]
 
-[ext_resource type="PackedScene" uid="uid://70jcabwr0gh2" path="res://Assets/Scenes/Misc/player.tscn" id="1_krht1"]
 [ext_resource type="Texture2D" uid="uid://c3wao2qsxhcv4" path="res://Assets/Sprites/tiles/tileset3.png" id="2_fkor7"]
 [ext_resource type="Texture2D" uid="uid://dm3d8r0u3gh2b" path="res://Assets/Sprites/tiles/tileset_wip.png" id="3_a0i8x"]
 [ext_resource type="PackedScene" uid="uid://w4la0yn65g0p" path="res://Assets/Scenes/Enemies/pouncer.tscn" id="6_a0i8x"]
@@ -224,6 +223,3 @@ position = Vector2(1829, 935)
 [node name="HealthPickup" parent="." unique_id=1307667603 instance=ExtResource("6_m1hyg")]
 position = Vector2(3011, 487)
 area = "blue"
-
-[node name="Player" parent="." unique_id=1833664872 instance=ExtResource("1_krht1")]
-position = Vector2(168, -17)
