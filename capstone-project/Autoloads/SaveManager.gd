@@ -25,8 +25,10 @@ func get_default_state() -> Dictionary:
 		"last_checkpoint": "",      # ID of the save station last used
 		"last_scene": "",           # scene path for that checkpoint
 		"player": {
-			"health": 10,
-			"max_health": 10,
+			"health": 6,
+			"max_health": 6,
+			"damage": 10,
+			"invincibility": 0.6,
 			"has_double_jump": false,
 			"has_dash": false,
 			"has_air_attack": false,

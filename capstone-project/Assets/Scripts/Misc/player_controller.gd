@@ -15,7 +15,6 @@ var invincible = false
 var being_knocked_back = false
 var being_SUPER_knocked_back = false
 var knockback_direction = 0
-var invincibility_timer = 1.0
 var flash_timer = 0.05
 const SPEED = 350.0
 const JUMP_VELOCITY = -490.0
@@ -26,6 +25,10 @@ var is_attacking = false
 @export var upgraded_knockback: float = 300.0
 @export var normal_gravity_multiplier: float = 1.5
 @export var low_gravity_multiplier: float = 0.3
+
+# ARMANI'S FIX #1: make fall limit and respawn location adjustable per level instead of hard-coded
+@export var fall_limit_y: float = 9000.0
+@export var fall_respawn_position: Vector2 = Vector2(-62, -78)
 
 var gravity_multiplier: float = 1.5
 var low_gravity_active: bool = false
@@ -159,14 +162,18 @@ func _physics_process(delta: float) -> void:
 			skele_hitbox.shape.size = Vector2(14.679, 28.463)
 	
 	# Called when player falls off map, respawns at a set location
-	if (position.y >= 1000):
+	#if (position.y >= 1000):
 		#velocity = Vector2.ZERO
 		#$fall.stream = fallsfx
 		#$fall.play()
 		#skele.play("fall")
 		#position = Vector2(200, -700)
-		position = Vector2(-62, -78)
-
+		# position = Vector2(-62, -78)
+		
+	# ARMANI'S FIX #1
+	if global_position.y >= fall_limit_y:
+		global_position = fall_respawn_position
+		velocity = Vector2.ZERO
 		
 	# Player loses control when "fall"ing, so movement functions are disabled.
 	# Functions such as gravity continue to work (below).
@@ -436,6 +443,7 @@ func die():
 	
 func flash() -> void:
 	var timer = 0.0
+	var invincibility_timer = SaveManager.get_player_value("invincibility")
 	while timer < invincibility_timer:
 		skele.visible = !skele.visible
 		await get_tree().create_timer(flash_timer).timeout
@@ -459,7 +467,7 @@ func _on_sword_body_entered(body: Node2D) -> void:
 			if knockback_upgrade_unlocked and extra_knockback_enabled:
 				knockback_amount = upgraded_knockback
 			
-			body.take_damage(10, hit_direction, knockback_amount)
+			body.take_damage(SaveManager.get_player_value("damage"), hit_direction, knockback_amount)
 
 func _on_airsword_body_entered(body: Node2D):
 	if is_airattacking == true and body.has_method("take_damage"):
@@ -502,17 +510,25 @@ func _on_coyote_time_timeout():
 	can_airattack = true
 
 func activate_low_gravity(duration: float):
-	if low_gravity_active:
-		return
-	
 	low_gravity_active = true
 	gravity_multiplier = low_gravity_multiplier
 	
 	print("Low gravity activated")
 	
-	await get_tree().create_timer(duration).timeout
+	skele.modulate = Color(0.0, 0.532, 0.98, 1.0)
+	await get_tree().create_timer(duration - 2).timeout
 	
+	var tween = create_tween()
+	tween.tween_property(skele, "modulate", Color(1, 1, 1), 2.0)
+	
+	await get_tree().create_timer(2).timeout
 	gravity_multiplier = normal_gravity_multiplier
 	low_gravity_active = false
 	
 	print("Low gravity ended")
+	
+func increase_max_health(amount: int) -> void:
+	max_health += amount
+	
+	SaveManager.set_player_value("max_health", max_health)
+	set_health(max_health)

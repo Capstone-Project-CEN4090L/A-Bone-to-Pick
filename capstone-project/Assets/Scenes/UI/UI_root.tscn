@@ -7,6 +7,9 @@
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=1975728676]
 process_mode = 1
+offset = Vector2(20, 20)
+scale = Vector2(0.7, 0.7)
+transform = Transform2D(0.7, 0, 0, 0.7, 20, 20)
 script = ExtResource("1_mtoll")
 full_icon = ExtResource("2_25oe2")
 half_icon = ExtResource("3_3igar")
