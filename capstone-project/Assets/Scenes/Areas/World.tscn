@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://ds8loi7in2ub2" path="res://Assets/Scenes/Areas/LevelA_1.tscn" id="13_d14s2"]
 [ext_resource type="PackedScene" uid="uid://qiab6c5cvjws" path="res://Assets/Scenes/Misc/Teleport.tscn" id="14_2vqwk"]
 [ext_resource type="PackedScene" uid="uid://ncqodbjla1sx" path="res://Assets/Scenes/Misc/TeleportSpawn.tscn" id="15_uvc3f"]
+[ext_resource type="PackedScene" uid="uid://70jcabwr0gh2" path="res://Assets/Scenes/Misc/player.tscn" id="16_uvc3f"]
 
 [node name="World" type="Node2D" unique_id=870883978]
 
@@ -24,7 +25,7 @@
 position = Vector2(-992, -682)
 
 [node name="Level1_1" parent="." unique_id=1745527148 instance=ExtResource("3_ljhjx")]
-position = Vector2(-2733, -1455)
+position = Vector2(-2728, -1488)
 
 [node name="Level1_2" parent="." unique_id=1014902692 instance=ExtResource("4_13whx")]
 position = Vector2(-4346, -2784)
@@ -54,13 +55,22 @@ position = Vector2(3348, -4650)
 position = Vector2(3256, -5635)
 
 [node name="LevelA_1" parent="." unique_id=1478182947 instance=ExtResource("13_d14s2")]
-position = Vector2(-2232, -3286)
+position = Vector2(-1426, -3286)
 
 [node name="Dash_Teleporter" parent="." unique_id=349261333 instance=ExtResource("14_2vqwk")]
 position = Vector2(615, -6450)
 scale = Vector2(3, 3)
 destination_spawn_id = "dash"
 
-[node name="Marker2D" parent="." unique_id=1914136304 instance=ExtResource("15_uvc3f")]
+[node name="Dash_Receiver" parent="." unique_id=1914136304 instance=ExtResource("15_uvc3f")]
 position = Vector2(-348, -945)
 spawn_id = "dash"
+
+[node name="Boss_Teleporter" parent="." unique_id=2049816952 instance=ExtResource("14_2vqwk")]
+position = Vector2(-1082, -6027)
+teleport_type = 1
+destination_spawn_id = "boss"
+destination_scene = "uid://cvwe1pcj22xy5"
+
+[node name="Player" parent="." unique_id=1833664872 instance=ExtResource("16_uvc3f")]
+position = Vector2(129, -18)

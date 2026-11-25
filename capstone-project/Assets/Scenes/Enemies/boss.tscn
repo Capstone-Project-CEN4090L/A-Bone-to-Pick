@@ -93,9 +93,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_biyew"]
-radius = 39.0
-height = 156.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rr4bj"]
+size = Vector2(65, 158)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_biyew"]
 size = Vector2(62.00001, 131.60002)
@@ -113,14 +112,12 @@ script = ExtResource("1_2f6fd")
 position = Vector2(-20.285713, -69.428566)
 scale = Vector2(0.99999994, 0.99999994)
 sprite_frames = SubResource("SpriteFrames_biyew")
-animation = &"boss_spikes"
-frame = 3
-frame_progress = 1.0
+animation = &"boss_death"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1721739944]
-position = Vector2(-8.857143, -48.000004)
-scale = Vector2(1.5055264, 1.5055264)
-shape = SubResource("CapsuleShape2D_biyew")
+position = Vector2(-8.14285, -44.07817)
+scale = Vector2(1.5055261, 1.5055261)
+shape = SubResource("RectangleShape2D_rr4bj")
 
 [node name="AttackArea" type="Area2D" parent="." unique_id=654166267]
 position = Vector2(-4.857143, -48.000004)

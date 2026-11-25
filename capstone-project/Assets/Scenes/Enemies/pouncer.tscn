@@ -81,7 +81,6 @@ size = Vector2(62.25, 42.25)
 [node name="pouncer" type="CharacterBody2D" unique_id=2133663499 groups=["enemies"]]
 scale = Vector2(1.5, 1.5)
 collision_layer = 8
-collision_mask = 9
 script = ExtResource("1_cj64d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=556822882 groups=["enemies"]]
