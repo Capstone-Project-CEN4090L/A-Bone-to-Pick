@@ -70,8 +70,8 @@ func _ready() -> void:
 		health = max_health
 	
 	var spawn_id: String = SceneManager.pending_spawn_id
-	if spawn_id == SaveManager.DEBUG_CHECKPOINT_ID:
-		global_position = SaveManager.get_debug_position()
+	if spawn_id == SaveManager.POSITION_CHECKPOINT_ID:
+		global_position = SaveManager.get_checkpoint_position()
 	elif spawn_id != "":
 		for point in get_tree().get_nodes_in_group("spawn_points"):
 			if point.get_spawn_id() == spawn_id:
@@ -417,11 +417,19 @@ func heal(amount: int) -> void:
 	print("Player Health: ", health)
 
 func die():
+	if dead:
+		return
+	dead = true
+	
+	var scene_path: String = SaveManager.game_state["last_scene"]
+	if scene_path == "":
+		scene_path = get_tree().current_scene.scene_file_path
+	var checkpoint_id: String = SaveManager.game_state["last_checkpoint"]
+
 	skele_sword.stop()
 	skele_hitbox.position = Vector2(-1, 9.758)
 	skele_hitbox.shape.size = Vector2(14.679, 28.463)
 	print("Player died")
-	dead = true
 	$CollisionShape2D.disabled = true
 	set_physics_process(false)
 	velocity.x = 0
@@ -431,11 +439,7 @@ func die():
 	$sfx.play()
 	await get_tree().create_timer(2.0).timeout
 	set_health(max_health)
-	
-	var scene_path: String = SaveManager.game_state["last_scene"]
-	if scene_path == "":
-		scene_path = get_tree().current_scene.scene_file_path
-	SceneManager.go_to(scene_path, SaveManager.game_state["last_checkpoint"])
+	SceneManager.go_to(scene_path, checkpoint_id)
 	
 func flash() -> void:
 	var timer = 0.0

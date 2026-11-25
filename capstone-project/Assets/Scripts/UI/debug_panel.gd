@@ -96,8 +96,7 @@ func _save_here() -> void:
 	var player = _get_player()
 	if player == null:
 		return
-	SaveManager.set_debug_checkpoint(get_tree().current_scene.scene_file_path, player.global_position)
-	SaveManager.save_game()
+	SaveManager.save_at_position(player.global_position)
 
 
 func _load_save() -> void:

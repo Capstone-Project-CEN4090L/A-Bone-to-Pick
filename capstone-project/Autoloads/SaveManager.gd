@@ -6,7 +6,7 @@ extends Node
 # The main menu "Continue" calls load_game(), then asks SceneManager
 # to load the level stored in game_state["last_checkpoint"].
 
-const DEBUG_CHECKPOINT_ID := "__debug__"
+const POSITION_CHECKPOINT_ID := "__position__"
 const SAVE_PATH := "user://save.json"
 
 #Everything that needs to survive a level swap or a quit lives in here
@@ -34,7 +34,7 @@ func get_default_state() -> Dictionary:
 			"has_air_attack": false,
 		},
 		"flags": {},                # e.g. "bulky_01_defeated": true
-		"debug_position": {},
+		"checkpoint_position": {},
 	}
 
 
@@ -75,15 +75,20 @@ func set_checkpoint(checkpoint_id: String, scene_path: String) -> void:
 	game_state["last_checkpoint"] = checkpoint_id
 	game_state["last_scene"] = scene_path
 
-func set_debug_checkpoint(scene_path: String, position: Vector2) -> void:
-	set_checkpoint(DEBUG_CHECKPOINT_ID, scene_path)
-	# JSON can't store Vector2, so split it into x/y
-	game_state["debug_position"] = {"x": position.x, "y": position.y}
 
 
-func get_debug_position() -> Vector2:
-	var p: Dictionary = game_state.get("debug_position", {})
+func set_position_checkpoint(scene_path: String, position: Vector2) -> void:
+	set_checkpoint(POSITION_CHECKPOINT_ID, scene_path)
+	game_state["checkpoint_position"] = {"x": position.x, "y": position.y}
+
+
+func get_checkpoint_position() -> Vector2:
+	var p: Dictionary = game_state.get("checkpoint_position", {})
 	return Vector2(p.get("x", 0.0), p.get("y", 0.0))
+
+func save_at_position(position: Vector2) -> void:
+	set_position_checkpoint(get_tree().current_scene.scene_file_path, position)
+	save_game()
 
 # Disk
 
