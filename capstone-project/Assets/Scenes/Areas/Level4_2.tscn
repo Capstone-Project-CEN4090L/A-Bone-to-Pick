@@ -258,8 +258,20 @@ tile_set = SubResource("TileSet_p3skf")
 tile_set = SubResource("TileSet_yhedt")
 
 [node name="SaveStation" parent="." unique_id=1323137895 instance=ExtResource("12_afm3j")]
-position = Vector2(1254, -17)
+position = Vector2(1254, -50)
 checkpoint_id = "142"
+
+[node name="pouncer" parent="." unique_id=2133663499 instance=ExtResource("11_afm3j")]
+position = Vector2(276, 21)
+
+[node name="FlyingEnemy" parent="." unique_id=839433531 instance=ExtResource("13_41rct")]
+position = Vector2(53, -228)
+
+[node name="FlyingEnemy2" parent="." unique_id=1574816704 instance=ExtResource("13_41rct")]
+position = Vector2(53, -494)
+
+[node name="pouncer2" parent="." unique_id=625118292 instance=ExtResource("11_afm3j")]
+position = Vector2(1127, -721)
 
 [node name="pouncer" parent="." unique_id=2133663499 instance=ExtResource("11_afm3j")]
 position = Vector2(276, 21)

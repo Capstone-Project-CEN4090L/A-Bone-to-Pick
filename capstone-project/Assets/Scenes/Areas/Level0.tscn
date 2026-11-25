@@ -262,7 +262,7 @@ tile_map_data = PackedByteArray("AAAXAF3/AAAAAAAAAQCm/zz/AAAAAAAAAQAMANz+AAAAAAA
 tile_set = SubResource("TileSet_8w5ac")
 
 [node name="SaveStation" parent="." unique_id=1323137895 instance=ExtResource("12_ewu4q")]
-position = Vector2(-141.78198, -1745.593)
+position = Vector2(-141.78198, -1786.593)
 checkpoint_id = "144"
 
 [connection signal="body_entered" from="tile1_main/Spikes/spike" to="tile1_main/Spikes/spike" method="_on_body_entered"]

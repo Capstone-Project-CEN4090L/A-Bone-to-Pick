@@ -39,7 +39,7 @@ var dashsfx = preload("res://Assets/Sounds/bossdash.mp3")
 func _ready():
 	health = max_health
 	start_position = global_position
-	sprite.play("default")
+	sprite.play("boss")
 	sprite.flip_h = false
 
 
@@ -115,6 +115,9 @@ func flash() -> void:
 	sprite.visible = true
 
 func dash(dashcount: int):
+	sprite.play("boss_crouch")
+	await get_tree().create_timer(0.5).timeout
+	sprite.play("boss_dash")
 	if sprite.flip_h:
 		position.x = left_point
 	else:
@@ -135,6 +138,7 @@ func update_dash_state() -> void:
 	dashes_remaining -= 1
 	
 	if dashes_remaining == 0:
+		sprite.play("boss")
 		dash_attack.disabled = true
 		velocity.x = 0.0
 		sprite.flip_h = !sprite.flip_h
@@ -149,6 +153,9 @@ func update_dash_state() -> void:
 	sprite.flip_h = direction > 0
 
 func jump() -> void:
+	sprite.play("boss_crouch")
+	await get_tree().create_timer(0.5).timeout
+	sprite.play("boss_dash")
 	set_collision_mask_value(1, false)
 	$sfx.stream = jumpsfx
 	$sfx.play()
@@ -172,6 +179,7 @@ func jump() -> void:
 	velocity.x = 0
 	dashing = false
 	set_collision_mask_value(1, true)
+	sprite.play("boss")
 	print("Done Air Attacking")
 	await get_tree().create_timer(attack_cooldown).timeout
 	roll = randi_range(1, 3)
@@ -179,6 +187,7 @@ func jump() -> void:
 		roll = randi_range(1, 3)
 
 func summon_spikes() -> void:
+	sprite.play("boss_spikes")
 	summon_spikes_right()
 	summon_spikes_left()
 	
@@ -201,6 +210,7 @@ func summon_spikes_left() -> void:
 		await get_tree().create_timer(spike_cooldown).timeout
 
 func die():
+	sprite.play("boss_death")
 	queue_free()
 
 func _on_attack_area_body_entered(body: Node2D) -> void:
