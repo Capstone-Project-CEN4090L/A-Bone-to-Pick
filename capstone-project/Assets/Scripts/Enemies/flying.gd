@@ -7,6 +7,7 @@ var health: int
 @export var patrol_distance: float = 200.0
 @export var contact_damage: int = 1
 @export var damage_cooldown: float = 0.75
+@export var invincible: bool = false
 
 var start_position: Vector2
 var direction: int = 1
@@ -62,12 +63,13 @@ func take_damage(
 	hit_direction: Vector2 = Vector2.ZERO,
 	knockback_amount: float = 0.0
 ):
-	health -= amount
-	
-	print("Flying Enemy Health: ", health)
-	
-	if health <= 0:
-		die()
+	if not invincible:
+		health -= amount
+		
+		print("Flying Enemy Health: ", health)
+		
+		if health <= 0:
+			die()
 
 
 func die():
