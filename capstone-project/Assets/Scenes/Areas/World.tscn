@@ -28,7 +28,7 @@ position = Vector2(-992, -682)
 position = Vector2(-2728, -1488)
 
 [node name="Level1_2" parent="." unique_id=1014902692 instance=ExtResource("4_13whx")]
-position = Vector2(-4346, -2784)
+position = Vector2(-4340, -2790)
 
 [node name="Level2_1" parent="." unique_id=1688509363 instance=ExtResource("5_slcgd")]
 position = Vector2(-9413, -2783)
@@ -74,7 +74,7 @@ destination_spawn_id = "boss"
 destination_scene = "uid://cvwe1pcj22xy5"
 
 [node name="Player" parent="." unique_id=1833664872 instance=ExtResource("16_uvc3f")]
-position = Vector2(154, -18)
+position = Vector2(-10359, -5181)
 normal_knockback = 150.0
 upgraded_knockback = 300.0
 normal_gravity_multiplier = 1.5
