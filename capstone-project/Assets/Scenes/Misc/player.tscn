@@ -649,6 +649,12 @@ z_index = 1
 collision_layer = 4
 collision_mask = 5
 script = ExtResource("1_sgob1")
+normal_knockback = null
+upgraded_knockback = null
+normal_gravity_multiplier = null
+low_gravity_multiplier = null
+fall_limit_y = null
+fall_respawn_position = null
 
 [node name="bgmusic" type="AudioStreamPlayer2D" parent="." unique_id=130236485]
 volume_db = -5.0

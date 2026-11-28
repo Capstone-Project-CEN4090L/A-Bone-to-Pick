@@ -27,7 +27,7 @@ var is_attacking = false
 @export var low_gravity_multiplier: float = 0.3
 
 # ARMANI'S FIX #1: make fall limit and respawn location adjustable per level instead of hard-coded
-@export var fall_limit_y: float = 9000.0
+@export var fall_limit_y: float = 2000.0
 @export var fall_respawn_position: Vector2 = Vector2(-62, -78)
 
 var gravity_multiplier: float = 1.5
@@ -172,8 +172,7 @@ func _physics_process(delta: float) -> void:
 		
 	# ARMANI'S FIX #1
 	if global_position.y >= fall_limit_y:
-		global_position = fall_respawn_position
-		velocity = Vector2.ZERO
+		die_fast()
 		
 	# Player loses control when "fall"ing, so movement functions are disabled.
 	# Functions such as gravity continue to work (below).
@@ -438,8 +437,28 @@ func die():
 	$sfx.stream = deadsfx
 	$sfx.play()
 	await get_tree().create_timer(2.0).timeout
+	SceneManager.die_fade(scene_path, checkpoint_id)
 	set_health(max_health)
-	SceneManager.go_to(scene_path, checkpoint_id)
+	
+func die_fast():
+	if dead:
+		return
+	dead = true
+	skele_hitbox.position = Vector2(-1, 9.758)
+	skele_hitbox.shape.size = Vector2(14.679, 28.463)
+	print("Player died")
+	velocity.x = 0
+	skele_sword.stop()
+	set_process_input(false)
+	var scene_path: String = SaveManager.game_state["last_scene"]
+	if scene_path == "":
+		scene_path = get_tree().current_scene.scene_file_path
+	var checkpoint_id: String = SaveManager.game_state["last_checkpoint"]
+	set_health(max_health)
+	SceneManager.die_fade(scene_path, checkpoint_id)
+	$fall.stream = fallsfx
+	$fall.play()
+	
 	
 func flash() -> void:
 	var timer = 0.0

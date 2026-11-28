@@ -67,10 +67,11 @@ position = Vector2(-348, -945)
 spawn_id = "dash"
 
 [node name="Boss_Teleporter" parent="." unique_id=2049816952 instance=ExtResource("14_2vqwk")]
-position = Vector2(-1082, -6027)
+position = Vector2(-1118, -6033)
+scale = Vector2(3, 3)
 teleport_type = 1
 destination_spawn_id = "boss"
 destination_scene = "uid://cvwe1pcj22xy5"
 
 [node name="Player" parent="." unique_id=1833664872 instance=ExtResource("16_uvc3f")]
-position = Vector2(134, -18)
+position = Vector2(215, 788)
